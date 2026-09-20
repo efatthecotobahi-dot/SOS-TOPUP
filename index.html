@@ -3,7 +3,8 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#f2f6ff;padding-bottom:80px}
 .head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
-.logo{font-weight:900;color:#0a3fff}
+.logo{font-weight:900;color:#0a3fff;font-size:14px}
+.loginBtn{background:#0a3fff;color:#fff;border:none;padding:6px 14px;border-radius:20px;font-weight:700;font-size:12px;cursor:pointer}
 .page{display:none;padding:12px}.page.active{display:block}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer}
@@ -17,35 +18,58 @@ body{background:#f2f6ff;padding-bottom:80px}
 .input{width:100%;padding:12px;border:2px solid #dce6ff;border-radius:10px;margin-top:8px;font-size:16px}
 .btn{width:100%;padding:13px;background:#0a3fff;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:10px;font-size:16px}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;z-index:99;font-size:12px;text-align:center}
+#loginModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
+#loginModal.show{display:flex}
+.loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:20px;text-align:center}
 </style></head><body>
-<div class="head"><div class="logo">SOS TOPUP - EFAT VAI</div><div style="background:#0a3fff;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px">LIVE</div></div>
+<div class="head"><div class="logo">SOS TOPUP - EFAT VAI</div><div><span id="userName" style="font-size:12px;font-weight:700;margin-right:6px"></span><button id="logBtn" onclick="openLogin()" class="loginBtn">LOGIN</button></div></div>
 
 <div id="homePage" class="page active">
 <div class="title">🔥 BONUS OFFER - EFAT VAI 🔥</div>
 <div class="grid">
-<div class="card" onclick="openTopup('friday')"><img src="IMG-20260920-WA7034.jpg"><p>FRIDAY OFFER</p></div>
-<div class="card" onclick="openTopup('fflike')"><img src="IMG-20260920-WA9575.jpg"><p>FF LIKE 200 DAILY</p></div>
+<div class="card" onclick="checkLogin('friday')"><img src="IMG-20260920-WA7034.jpg"><p>FRIDAY OFFER</p></div>
+<div class="card" onclick="checkLogin('fflike')"><img src="IMG-20260920-WA9575.jpg"><p>FF LIKE 200 DAILY</p></div>
 </div>
 <div class="title">🎮 GAMES TOPUP - FROM 23 TK</div>
 <div class="grid">
-<div class="card" onclick="openTopup('diamond')"><img src="IMG-20260920-WA1879.jpg"><p>ALL DIAMOND - 23 TK</p></div>
-<div class="card" onclick="openTopup('weekly')"><img src="IMG-20260920-WA8156.jpg"><p>WEEKLY - 160 TK</p></div>
-<div class="card" onclick="openTopup('monthly')"><img src="IMG-20260920-WA5260.jpg"><p>MONTHLY - 770 TK</p></div>
-<div class="card" onclick="openTopup('level')"><img src="IMG-20260920-WA1879.jpg"><p>LEVEL UP PASS</p></div>
+<div class="card" onclick="checkLogin('diamond')"><img src="IMG-20260920-WA1879.jpg"><p>ALL DIAMOND - 23 TK</p></div>
+<div class="card" onclick="checkLogin('weekly')"><img src="IMG-20260920-WA8156.jpg"><p>WEEKLY - 160 TK</p></div>
+<div class="card" onclick="checkLogin('monthly')"><img src="IMG-20260920-WA5260.jpg"><p>MONTHLY - 770 TK</p></div>
+<div class="card" onclick="checkLogin('level')"><img src="IMG-20260920-WA1879.jpg"><p>LEVEL UP PASS</p></div>
 </div>
 </div>
 
 <div id="topupPage" class="page">
-<button onclick="document.getElementById('homePage').classList.add('active');document.getElementById('topupPage').classList.remove('active')" style="background:#eee;border:none;padding:8px 14px;border-radius:20px">← Back</button>
+<button onclick="showHome()" style="background:#eee;border:none;padding:8px 14px;border-radius:20px">← Back</button>
 <div class="box" style="display:flex;gap:10px;align-items:center"><img id="tImg" src="IMG-20260920-WA1879.jpg" style="width:65px;height:65px;border-radius:12px;object-fit:cover"><div><b id="tTitle">PACKAGE</b><br><small style="color:green">⚡ 2 সেকেন্ডে টপআপ - Efat Vai</small></div></div>
 <div class="box"><b>1. Select Package</b><div id="list" class="rech" style="margin-top:10px"></div></div>
 <div class="box"><b>2. UID</b><input id="uid" class="input" placeholder="UID দিন"><b style="margin-top:12px;display:block">3. Payment - bKash 01705780185</b><input id="trx" class="input" placeholder="TrxID দিন"><button onclick="orderNow()" class="btn">✅ অর্ডার করুন</button></div>
 </div>
 
+<!-- LOGIN MODAL -->
+<div id="loginModal"><div class="loginBox">
+<h3>🔐 LOGIN - SOS TOPUP</h3>
+<p style="font-size:12px;color:#666;margin:8px 0">Login করলেই Order দিতে পারবে</p>
+<input id="lPhone" class="input" placeholder="ফোন নাম্বার - 017...">
+<input id="lPass" class="input" type="password" placeholder="পাসওয়ার্ড - 1234">
+<button onclick="doLogin()" class="btn">LOGIN করুন</button>
+<button onclick="closeLogin()" style="background:none;border:none;margin-top:10px;color:#666">পরে করবো</button>
+</div></div>
+
 <div class="bottom"><div>⌂<br>Home</div><div>▶<br>Tutorial</div><div style="color:#0a3fff">⊞<br>TopUp</div><div>☎<br>Contact</div></div>
 
 <script>
-let SEL="";const DATA={diamond:[["25 Diamond","23 TK"],["50 Diamond","40 TK"],["115 Diamond","79 TK"],["240 Diamond","156 TK"],["355 Diamond","237 TK"],["505 Diamond","336 TK"],["610 Diamond","395 TK"]],weekly:[["Weekly Lite","160 TK"],["2x Weekly","320 TK"]],monthly:[["Monthly","770 TK"],["2X Monthly","1540 TK"]],level:[["Level 6","40 TK"],["Full Level","415 TK"]],friday:[["Friday Offer","50 TK"]],fflike:[["Like 200 Daily","30 TK"]]};
+let SEL=""; let LOGGED = localStorage.getItem('sos_user');
+const DATA={diamond:[["25 Diamond","23 TK"],["50 Diamond","40 TK"],["115 Diamond","79 TK"],["240 Diamond","156 TK"],["355 Diamond","237 TK"],["505 Diamond","336 TK"],["610 Diamond","395 TK"]],weekly:[["Weekly Lite","160 TK"],["2x Weekly","320 TK"]],monthly:[["Monthly","770 TK"],["2X Monthly","1540 TK"]],level:[["Level 6","40 TK"],["Full Level","415 TK"]],friday:[["Friday Offer","50 TK"]],fflike:[["Like 200 Daily","30 TK"]]};
+
+function updateLoginUI(){if(LOGGED){document.getElementById('userName').innerText=LOGGED;document.getElementById('logBtn').innerText='LOGOUT';document.getElementById('logBtn').onclick=logOut}}
+function openLogin(){document.getElementById('loginModal').classList.add('show')}
+function closeLogin(){document.getElementById('loginModal').classList.remove('show')}
+function doLogin(){let p=document.getElementById('lPhone').value;let pw=document.getElementById('lPass').value;if(p.length<11)return alert('সঠিক ফোন নাম্বার দাও');if(pw.length<3)return alert('পাসওয়ার্ড দাও');localStorage.setItem('sos_user',p);LOGGED=p;updateLoginUI();closeLogin();alert('Login Successful! এখন Order দাও');}
+function logOut(){localStorage.removeItem('sos_user');location.reload()}
+function checkLogin(t){if(!LOGGED){openLogin();return;}openTopup(t)}
+function showHome(){document.getElementById('homePage').classList.add('active');document.getElementById('topupPage').classList.remove('active')}
 function openTopup(t){document.getElementById('homePage').classList.remove('active');document.getElementById('topupPage').classList.add('active');document.getElementById('tTitle').innerText=t.toUpperCase();let L=DATA[t]||DATA.diamond;let H="";L.forEach((p,i)=>{H+=`<div id="r${i}" onclick="SEL='${p[0]} - ${p[1]}';document.querySelectorAll('.rech div').forEach(e=>e.classList.remove('sel'));document.getElementById('r${i}').classList.add('sel')">${p[0]}<b style="display:block;color:#ff6a00">${p[1]}</b></div>`});document.getElementById('list').innerHTML=H}
-function orderNow(){let u=document.getElementById('uid').value;let tr=document.getElementById('trx').value;if(!SEL)return alert('প্যাকেজ সিলেক্ট করো');if(!u)return alert('UID দাও');if(!tr)return alert('TrxID দাও');let m=`*SOS TOPUP - EFAT VAI*%0APackage: ${SEL}%0AUID: ${u}%0ATrxID: ${tr}`;window.open('https://wa.me/8801705780185?text='+m,'_blank')}
+function orderNow(){let u=document.getElementById('uid').value;let tr=document.getElementById('trx').value;if(!SEL)return alert('প্যাকেজ সিলেক্ট করো');if(!u)return alert('UID দাও');if(!tr)return alert('TrxID দাও');let m=`*SOS TOPUP - EFAT VAI*%0AUser: ${LOGGED}%0APackage: ${SEL}%0AUID: ${u}%0ATrxID: ${tr}`;window.open('https://wa.me/8801705780185?text='+m,'_blank')}
+updateLoginUI();
 </script></body></html>
