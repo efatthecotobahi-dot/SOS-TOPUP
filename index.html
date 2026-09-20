@@ -1,57 +1,43 @@
 <!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SOS TOPUP PAPA</title>
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOS TOPUP</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#f6f8ff}
-.nav{background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px #0001;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:19px}.logo b{color:#ff0033}
-.hero{margin:12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;padding:16px;border-radius:16px;text-align:center}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
-.card{background:#fff;border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 6px #0001;cursor:pointer}
-.card img{width:60px;height:60px;border-radius:10px}
-.price{color:#ff0033;font-weight:900}
-.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;z-index:999;padding:12px}.modal.on{display:flex}
-.box{background:#fff;width:100%;max-width:380px;border-radius:18px;padding:18px}
-.input{width:100%;padding:12px;border:2px solid #dbe4ff;border-radius:10px;margin-top:8px}
-.btn{width:100%;padding:13px;border:none;border-radius:30px;font-weight:800;margin-top:10px;background:#2575fc;color:#fff}
-</style>
-</head>
-<body>
-<div class="nav"><div class="logo">SOS <b>TOPUP PAPA</b></div><div style="font-size:12px;font-weight:700">bKash: 01705780185</div></div>
-<div class="hero"><h3>🔥 শ্রেষ্ঠ সেবা পাবে 🔥</h3><p style="font-size:12px;margin-top:4px">Fast Delivery • 100% Trusted</p></div>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#f4f6fb}
+.top{background:#fff;padding:14px;text-align:center;box-shadow:0 2px 10px #0001;position:sticky;top:0;z-index:50}
+.logo{font-weight:900;font-size:24px;letter-spacing:1px} .logo b{color:#ff0033}
+.banner{margin:12px;border-radius:18px;height:170px;background:url('https://via.placeholder.com/800x400/6a11cb/fff?text=SOS+TOPUP+BANNER') center/cover;position:relative;display:flex;align-items:center;justify-content:center;color:#fff}
+.banner::after{content:'';position:absolute;inset:0;background:linear-gradient(#0002,#0008);border-radius:18px}
+.banner h1{position:relative;z-index:2;font-size:32px;font-weight:900;text-shadow:0 3px 10px #000}
+.section{padding:12px}
+.sec-title{font-weight:900;font-size:16px;margin-bottom:10px;display:flex;justify-content:space-between}
+.sec-title span{font-size:11px;background:#ff0033;color:#fff;padding:3px 8px;border-radius:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px #0001;cursor:pointer}
+.card img{width:100%;height:115px;object-fit:cover}
+.card .info{padding:8px;text-align:center}.price{color:#ff0033;font-weight:900}
+.modal{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;justify-content:center;z-index:999}
+.modal.on{display:flex}
+.box{background:#fff;width:100%;max-width:420px;border-radius:22px 22px 0 0;padding:18px;max-height:92vh;overflow:auto}
+.input{width:100%;padding:13px;border:2px solid #e3e8ff;border-radius:12px;margin-top:8px}
+.pay{border:2px solid #eee;border-radius:14px;padding:12px;margin-top:10px;display:flex;justify-content:space-between;cursor:pointer}
+.pay.on{border-color:#6a11cb;background:#f3f0ff}
+.btn{width:100%;padding:14px;border:none;border-radius:30px;font-weight:900;margin-top:12px;background:#6a11cb;color:#fff}
+.step{display:none}.step.on{display:block}
+</style></head><body>
+<div class="top"><div class="logo">SOS <b>TOPUP</b></div></div>
+<div class="banner"><h1>SOS TOPUP</h1></div>
 
+<div class="section">
+<div class="sec-title">🔥 SPECIAL OFFER <span>LIMITED</span></div>
 <div class="grid">
-<div class="card" onclick="openM('25 Diamond - 25 TK')"><img src="https://via.placeholder.com/100/2575fc/fff?text=25D"><div><b>25 Diamond</b><br><span class="price">৳25</span></div></div>
-<div class="card" onclick="openM('50 Diamond - 45 TK')"><img src="https://via.placeholder.com/100/2575fc/fff?text=50D"><div><b>50 Diamond</b><br><span class="price">৳45</span></div></div>
-<div class="card" onclick="openM('115 Diamond - 85 TK')"><img src="https://via.placeholder.com/100/ff0033/fff?text=115D"><div><b>115 Diamond</b><br><span class="price">৳85</span></div></div>
-<div class="card" onclick="openM('Weekly Lite - 45 TK')"><img src="https://via.placeholder.com/100/00b894/fff?text=WEEK"><div><b>Weekly Lite</b><br><span class="price">৳45</span></div></div>
-<div class="card" onclick="openM('Monthly - 850 TK')"><img src="https://via.placeholder.com/100/fdcb6e/000?text=MONTH"><div><b>Monthly</b><br><span class="price">৳850</span></div></div>
-<div class="card" onclick="openM('Level Up - 185 TK')"><img src="https://via.placeholder.com/100/6c5ce7/fff?text=LVL"><div><b>Level Up Pass</b><br><span class="price">৳185</span></div></div>
+<div class="card" onclick="openPkg('Weekly Lite - 45 TK')"><img src="https://via.placeholder.com/400/00b894/fff?text=Weekly+Lite"><div class="info"><b>Weekly Lite</b><br><span class="price">৳45</span></div></div>
+<div class="card" onclick="openPkg('Monthly - 850 TK')"><img src="https://via.placeholder.com/400/fdcb6e/000?text=Monthly"><div class="info"><b>Monthly</b><br><span class="price">৳850</span></div></div>
+</div>
 </div>
 
-<div class="modal" id="modal"><div class="box">
-<h3 id="pkg"></h3>
-<input id="uid" class="input" type="number" placeholder="🎮 Free Fire UID দাও">
-<input id="gmail" class="input" type="email" placeholder="📧 Gmail (Optional)">
-<input id="trx" class="input" placeholder="💳 bKash TrxID / Number">
-<div style="margin-top:10px;background:#ffe6ea;padding:10px;border-radius:10px;text-align:center"><b>bKash Personal</b><br><span style="font-size:18px;font-weight:900;color:#e91e63">01705780185</span><br><small>Send Money করে TrxID দাও</small></div>
-<button class="btn" onclick="order()">✅ অর্ডার করুন WhatsApp এ</button>
-<button class="btn" style="background:#eee;color:#000" onclick="document.getElementById('modal').classList.remove('on')">Close</button>
-</div></div>
-
-<script>
-let PKG="";
-function openM(p){PKG=p;document.getElementById('pkg').innerText=p;document.getElementById('modal').classList.add('on')}
-function order(){
-let uid=document.getElementById('uid').value,trx=document.getElementById('trx').value,gmail=document.getElementById('gmail').value;
-if(!uid)return alert('UID দাও');if(!trx)return alert('TrxID দাও');
-let msg=`*SOS TOPUP PAPA ORDER*%0APackage: ${PKG}%0AUID: ${uid}%0AGmail: ${gmail}%0ATrxID: ${trx}%0A%0AbKash: 01705780185`;
-window.open('https://wa.me/8801705780185?text='+msg,'_blank');
-document.getElementById('modal').classList.remove('on');
-}
-</script>
-</body>
-  </html>
+<div class="section">
+<div class="sec-title">💎 ALL PACKAGES <span>TRUSTED</span></div>
+<div class="grid">
+<div class="card" onclick="openPkg('25 Diamond - 25 TK')"><img src="https://via.placeholder.com/400/2575fc/fff?text=25+Diamond"><div class="info"><b>25 Diamond</b><br><span class="price">৳25</span></div></div>
+<div class="card" onclick="openPkg('50 Diamond - 45 TK')"><img src="https://via.placeholder.com/400/2575fc/fff?text=50+Diamond"><div class="info"><b>50 Diamond</b><br><span class="price">৳45</span></div></div>
+<div class="card" onclick="open
