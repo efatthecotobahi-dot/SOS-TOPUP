@@ -1,107 +1,101 @@
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SOS TOPUP - BS STYLE - EFAT VAI</title>
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SOS TOPUP - EFAT VAI FINAL</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f7fb;padding-bottom:90px}
-.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px #0001}
-.logo{font-weight:900;color:#2a3bff;display:flex;align-items:center;gap:8px;font-size:18px}
-.logo i{width:32px;height:32px;background:#2a3bff;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff}
-.notice{background:#2a3bff;color:#fff;padding:6px 0;display:flex;overflow:hidden}
-.notice b{background:#fff;color:#2a3bff;padding:3px 8px;border-radius:5px;margin:0 8px;font-size:11px}
-.marq{white-space:nowrap;animation:m 18s linear infinite;font-size:12px;font-weight:700}
-@keyframes m{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}
-.cat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:12px}
-@media(max-width:600px){.cat-grid{grid-template-columns:1fr 1fr}}
-.c-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px #0001;border:1.5px solid #eee;cursor:pointer}
-.c-card img{width:100%;height:120px;object-fit:cover;display:block}
-.c-card p{padding:10px;text-align:center;font-weight:800;font-size:12px;line-height:14px}
-.c-card.active{border-color:#6c2bff;box-shadow:0 0 0 2px #6c2bff33}
-.sec-title{font-weight:900;padding:16px 14px 8px;font-size:14px}
-.pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px}
-.p-item{background:#fff;border:1.5px solid #e5e8f0;border-radius:12px;padding:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.p-item.sel{border-color:#6c2bff;background:#f6f1ff}
-.p-item.dot{width:20px;height:20px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;margin-right:8px;flex-shrink:0}
-.p-item.sel.dot{border-color:#6c2bff;background:#6c2bff;color:#fff}
-.p-item.dot::after{content:'';width:8px;height:8px;background:#fff;border-radius:50%;display:none}
-.p-item.sel.dot::after{display:block}
-.p-name{font-size:13px;font-weight:600;display:flex;align-items:center}
-.p-price{color:#ff7a00;font-weight:900;font-size:13px;white-space:nowrap}
-.inputBox{background:#fff;border-radius:14px;padding:14px;margin:12px;border:1.5px solid #eee}
-.inputBox input{width:100%;padding:13px;border:1.5px solid #d0d5e3;border-radius:10px;margin-top:8px}
-.btnCheck{width:100%;background:#6c2bff;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:800;margin-top:10px}
-.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.pay{background:#fff;border:1.5px solid #e5e8f0;border-radius:12px;padding:10px;text-align:center;cursor:pointer;position:relative;overflow:hidden}
-.pay.sel{border-color:#6c2bff;background:#f6f1ff}
-.pay img{width:100%;height:60px;object-fit:contain}
-.pay b{font-size:12px;display:block;margin-top:6px}
-.info{font-size:12px;color:#666;padding:8px 14px;display:flex;gap:6px;align-items:center;margin-top:8px}
-.btnLogin{width:100%;background:#6c2bff;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;margin:12px;font-size:15px;width:calc(100% - 24px)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f0f3ff;padding-bottom:80px}
+.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px #0001}
+.logo{font-weight:900;color:#5a2eff;display:flex;gap:8px;align-items:center}
+.logo i{width:32px;height:32px;background:#5a2eff;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center}
+.cat{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.cc{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px #0001;border:2px solid transparent;cursor:pointer}
+.cc img{width:100%;height:140px;object-fit:cover;display:block;background:#111}
+.cc p{padding:9px;text-align:center;font-weight:800;font-size:12px}
+.cc.on{border-color:#5a2eff}
+.title{font-weight:900;padding:14px 12px 8px;font-size:14px}
+.pkg{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px}
+.pi{background:#fff;border:1.5px solid #dde2f0;border-radius:11px;padding:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.pn{font-size:13px;font-weight:600}
+.pp{color:#ff6a00;font-weight:900;font-size:13px}
 .page{display:none}.page.active{display:block}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;font-size:11px;text-align:center}
-#loginBox{position:fixed;inset:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
-#loginBox.show{display:flex}
-.lc{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:20px;text-align:center}
+.box{background:#fff;border-radius:14px;padding:14px;margin:12px;border:1px solid #e8eaf0}
+.inp{width:100%;padding:12px;border:1.5px solid #d0d6e6;border-radius:10px;margin-top:8px}
+.btn{width:100%;padding:14px;border-radius:10px;border:none;font-weight:900;color:#fff;margin-top:10px;cursor:pointer}
+.btn-p{background:#5a2eff}
+.btn-w{background:#00a84f}
+.pay{border:2px solid #00a84f;border-radius:12px;padding:14px;text-align:center;background:#e8fff1}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd;font-size:11px;text-align:center}
+#log{position:fixed;inset:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
+#log.show{display:flex}
+.lc{background:#fff;width:100%;max-width:330px;border-radius:16px;padding:20px;text-align:center}
 </style></head><body>
-<div class="head"><div class="logo"><i>S</i> SOS TOPUP</div><div><span id="uName" style="font-size:11px;font-weight:700"></span> <button id="logBtn" onclick="openLog()" style="background:#2a3bff;color:#fff;border:none;padding:6px 14px;border-radius:20px;font-weight:800;font-size:12px">LOGIN</button></div></div>
+<div class="head"><div class="logo"><i>S</i> SOS TOPUP</div><div><span id="un" style="font-size:11px;font-weight:700"></span> <button id="lb" onclick="oL()" style="background:#5a2eff;color:#fff;border:none;padding:6px 14px;border-radius:20px;font-weight:800;font-size:12px">LOGIN</button></div></div>
 
 <div id="home" class="page active">
-<div class="notice"><b>NOTICE</b><div style="overflow:hidden;flex:1"><div class="marq">🔥 SOS TOPUP - BS STYLE - EFAT VAI - UID TOPUP BD SERVER - 01705780185 🔥</div></div></div>
-
-<div class="sec-title">Select Category</div>
-<div class="cat-grid">
-<div class="c-card active" onclick="openCat('diamond',this)"><img src="https://i.ibb.co/4gM2yYh0/ff1.jpg" onerror="this.src='https://via.placeholder.com/200x120/6c2bff/fff?text=UID+TOPUP'"><p>Uid Topup [BD SERVER]</p></div>
-<div class="c-card" onclick="openCat('lite',this)"><img src="https://i.ibb.co/4gM2yYh0/ff1.jpg" onerror="this.src='https://via.placeholder.com/200x120/00d4ff/fff?text=WEEKLY+LITE'"><p>WEEKLY LITE</p></div>
-<div class="c-card" onclick="openCat('weekly',this)"><img src="https://i.ibb.co/4gM2yYh0/ff1.jpg" onerror="this.src='https://via.placeholder.com/200x120/ff7a00/fff?text=WEEKLY'"><p>WEEKLY</p></div>
-<div class="c-card" onclick="openCat('monthly',this)"><img src="https://i.ibb.co/4gM2yYh0/ff1.jpg" onerror="this.src='https://via.placeholder.com/200x120/111/fff?text=MONTHLY'"><p>MONTHLY</p></div>
-<div class="c-card" onclick="openCat('combo',this)"><img src="https://i.ibb.co/4gM2yYh0/ff1.jpg" onerror="this.src='https://via.placeholder.com/200x120/ff00aa/fff?text=COMBO'"><p>Weekly/Monthly</p></div>
-<div class="c-card" onclick="openCat('level',this)"><img src="https://i.ibb.co/4gM2yYh0/ff1.jpg" onerror="this.src='https://via.placeholder.com/200x120/00aa55/fff?text=LEVEL+UP'"><p>Lavel UP PASS</p></div>
+<div class="cat">
+<div class="cc on" onclick="showPkg('weekly',this)"><img src="1-weekly.jpg"><p>Weekly</p></div>
+<div class="cc" onclick="showPkg('lite',this)"><img src="2-weekly-lite.jpg"><p>Weekly Lite</p></div>
+<div class="cc" onclick="showPkg('diamond',this)"><img src="3-id-code-topup-bd.jpg"><p>ID CODE TOPUP BD</p></div>
+<div class="cc" onclick="showPkg('monthly',this)"><img src="4-mantly.jpg"><p>MANTLY</p></div>
+<div class="cc" onclick="showPkg('level',this)"><img src="5-lv-up-pass-bd.jpg"><p>LV UP PASS BD</p></div>
+<div class="cc" onclick="showPkg('combo',this)"><img src="6-weekly-mantly-combo-offer.jpg"><p>Weekly+MANTLY কম্ব ওফার</p></div>
 </div>
 
-<div id="pkgArea">
-<div class="sec-title" id="pkgTitle">💎 DIAMOND TOPUP - Select Package</div>
-<div class="pkg-grid" id="pkgGrid"></div>
+<div id="pkgSec">
+<div class="title" id="ptitle">Weekly - Package Select করুন 👇</div>
+<div class="pkg" id="pgrid"></div>
+<div style="padding:12px;font-size:11px;color:#666;text-align:center">👆 প্যাকেজে টিপ দিলে ভিতরে নিয়ে যাবে - শুধু WhatsApp Payment</div>
+</div>
 </div>
 
-<div class="inputBox">
-<label style="font-weight:800;font-size:13px">এখানে গেমের আইডি কোড দিন</label>
-<input id="uid" placeholder="এখানে গেমের আইডি কোড দিন">
-<button class="btnCheck" onclick="checkName()">আপনার গেম আইডির নাম চেক করুন</button>
-<div id="nameResult" style="font-size:12px;color:green;margin-top:8px;display:none">✅ Name: Player123</div>
+<div id="checkout" class="page">
+<div class="box"><button onclick="goHome()" style="border:none;background:#eee;padding:6px 12px;border-radius:20px">← Back</button>
+<div style="margin-top:12px"><b id="ctitle" style="font-size:16px"></b><br><small id="cprice" style="color:#ff6a00;font-weight:800;font-size:15px"></small></div></div>
+
+<div class="box">
+<b>এখানে গেমের আইডি কোড দিন</b>
+<input id="uid" class="inp" placeholder="Game UID দিন">
+<button class="btn btn-p" onclick="checkN()">আপনার গেম আইডির নাম চেক করুন</button>
+<div id="nres" style="display:none;color:green;font-size:13px;margin-top:8px;font-weight:700"></div>
 </div>
 
-<div class="inputBox">
-<div style="display:flex;align-items:center;gap:8px"><div style="background:#6c2bff;color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px">3</div><b style="font-size:14px">Select one option</b></div>
-<div class="pay-grid">
-<div class="pay sel" onclick="selPay(this,'wallet')"><div style="background:#f6f1ff;padding:10px;border-radius:8px;font-weight:900;color:#6c2bff">💳 WALLET PAY</div><b>Wallet Pay</b></div>
-<div class="pay" onclick="selPay(this,'instant')"><div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center"><span style="background:#e60072;color:#fff;padding:4px 6px;border-radius:4px;font-size:10px">বিকাশ</span><span style="background:#6c2bff;color:#fff;padding:4px 6px;border-radius:4px;font-size:10px">রকেট</span><span style="background:#ff7a00;color:#fff;padding:4px 6px;border-radius:4px;font-size:10px">নগদ</span><span style="background:#00aa55;color:#fff;padding:4px 6px;border-radius:4px;font-size:10px">উপায়</span></div><b>Instant Pay</b></div>
+<div class="box">
+<b>💳 Payment Method - WhatsApp Only</b>
+<div class="pay" style="margin-top:10px">
+<div style="font-size:30px">💬</div>
+<b>WhatsApp Payment</b><br>
+<small>TrxID দিয়ে Direct WhatsApp এ Order যাবে</small><br>
+<small style="color:#00a84f;font-weight:800">No bKash/Nagad Button - Only WhatsApp</small>
 </div>
-<div class="info">ⓘ প্রোডাক্ট কিনতে আপনার প্রয়োজন <b style="color:#6c2bff" id="needTk">0 টাকা</b>।</div>
-<div class="info" style="color:#ff7a00">ⓘ Please Login To Purchase</div>
-</div>
-
-<button class="btnLogin" onclick="doOrder()">Login</button>
+<div style="margin-top:10px;font-size:12px">ⓘ প্রয়োজন <b id="need" style="color:#5a2eff">0 TK</b></div>
 </div>
 
-<div id="loginBox"><div class="lc"><h3>LOGIN TO SOS TOPUP</h3><input id="phone" style="width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin-top:10px" placeholder="Phone 017..."><input id="pass" type="password" style="width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin-top:8px" placeholder="Password"><button onclick="doLogin()" style="width:100%;padding:12px;background:#6c2bff;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:10px">LOGIN</button><button onclick="closeLog()" style="border:none;background:none;margin-top:8px;color:#888">Close</button></div></div>
-<div class="bottom"><div style="color:#6c2bff;font-weight:800">⌂<br>Home</div><div>▶<br>Tutorial</div><div>⊞<br>TopUp</div><div>☎<br>Contact</div></div>
+<div class="box">
+<b>TrxID দিন (bKash: 01705780185)</b>
+<input id="trx" class="inp" placeholder="TrxID লিখুন">
+<button class="btn btn-w" onclick="orderNow()">💬 ORDER NOW via WhatsApp - <span id="btnPrice">0 TK</span></button>
+</div>
+</div>
+
+<div id="log"><div class="lc"><h3>LOGIN</h3><input id="ph" class="inp" placeholder="017..."><input id="ps" class="inp" type="password" placeholder="Password"><button onclick="dL()" class="btn btn-p">LOGIN</button><button onclick="cL()" style="border:none;background:none;margin-top:8px;color:#888">Close</button></div></div>
+<div class="bottom"><div style="color:#5a2eff;font-weight:800">⌂<br>Home</div><div>▶<br>Tutorial</div><div>⊞<br>TopUp</div><div>☎<br>Contact</div></div>
 
 <script>
-const ALL={
-diamond:[["25 Diamond 💎","20 TK"],["50 Diamond 💎","35 TK"],["115 Diamond 💎","79 TK"],["240 Diamond 💎","158 TK"],["355 Diamond 💎","237 TK"],["480 Diamond 💎","316 TK"],["610 Diamond 💎","400 TK"],["850 Diamond 💎","558 TK"],["1090 diamond 💎","716 TK"],["1240 Diamond 💎","800 TK"],["1850 Diamond 💎","1200 TK"],["2090 Diamond 💎","1358 TK"],["2530 Diamond 💎","1600 TK"],["5060 Diamond 💎","3200 TK"],["10120 Diamond 💎","6400 TK"],["12650 Diamond 💎","7900 TK"],["25300 Diamond 💎","15800 TK"]],
-lite:[["Weekly Lite","40 TK"],["Weekly Lite 2x","78 TK"],["Weekly Lite 5x","190 TK"]],
-weekly:[["Weekly","158 TK"],["Weekly 2x","315 TK"]],
-monthly:[["Monthly","780 TK"],["Monthly 2x","1550 TK"]],
-combo:[["Weekly + Monthly Combo","938 TK"],["Weekly Lite + Monthly","820 TK"]],
-level:[["Level Up Package - Level 6","42 TK"],["Level Up Package - Level 10","75 TK"],["Level Up Package - Level 15","75 TK"],["Level Up Package - Level 20","75 TK"],["Level Up Package - Level 25","75 TK"],["Level Up Package - Level 30","105 TK"],["Level up pass (6Lvl -30 Lvl) full package (1270 Diamond)","440 TK"]]
+const DATA={
+weekly:[["Weekly Offer","158 TK"],["Weekly 2x","316 TK"],["Weekly 3x","474 TK"]],
+lite:[["Weekly Lite","40 TK"],["Weekly Lite 2x","80 TK"]],
+diamond:[["25 Diamond 💎","20 TK"],["50 Diamond 💎","35 TK"],["115 Diamond 💎","79 TK"],["240 Diamond 💎","158 TK"],["480 Diamond 💎","316 TK"],["610 Diamond 💎","400 TK"],["1240 Diamond 💎","800 TK"],["2530 Diamond 💎","1600 TK"],["5060 Diamond 💎","3200 TK"],["10120 Diamond 💎","6400 TK"]],
+monthly:[["MANTLY Offer","780 TK"]],
+level:[["LV UP PASS - Level 6","42 TK"],["Level 10","75 TK"],["Level 15","75 TK"],["Level 20","75 TK"],["Level 25","75 TK"],["Level 30","105 TK"],["Full 6-30 Pass (1270 Dia)","440 TK"]],
+combo:[["Weekly + MANTLY Combo","938 TK"],["Weekly Lite + MANTLY","820 TK"]]
 };
-let CUR="diamond"; let SEL=null; let SEL_PRICE=0; let USER=localStorage.getItem('sos_user'); let PAY="wallet";
-function render(k){CUR=k; let grid=document.getElementById('pkgGrid'); let list=ALL[k]||ALL.diamond; let h=""; list.forEach((p,i)=>{let active=i==0?'sel':''; if(i==0){SEL=p[0]; SEL_PRICE=p[1]; document.getElementById('needTk').innerText=p[1];} h+=`<div class="p-item ${active}" onclick="selectPkg(this,'${p[0]}','${p[1]}')"><div class="p-name"><div class="dot"></div>${p[0]}</div><div class="p-price">${p[1]}</div></div>`}); grid.innerHTML=h; document.getElementById('pkgTitle').innerText=k=='diamond'?'💎 DIAMOND TOPUP - Select':k.toUpperCase()+' - Select Package';}
-function selectPkg(el,name,price){document.querySelectorAll('.p-item').forEach(e=>e.classList.remove('sel')); el.classList.add('sel'); SEL=name; SEL_PRICE=price; document.getElementById('needTk').innerText=price;}
-function openCat(k,card){document.querySelectorAll('.c-card').forEach(e=>e.classList.remove('active')); card.classList.add('active'); render(k);}
-function selPay(el,type){document.querySelectorAll('.pay').forEach(e=>e.classList.remove('sel')); el.classList.add('sel'); PAY=type;}
-function checkName(){let u=document.getElementById('uid').value; if(!u)return alert('UID দিন'); document.getElementById('nameResult').style.display='block'; document.getElementById('nameResult').innerText='✅ Name: FF Player '+u.slice(-3)+' (Demo)';}
-function updateUI(){if(USER){document.getElementById('uName').innerText=USER;document.getElementById('logBtn').innerText='LOGOUT';document.getElementById('logBtn').onclick=()=>{localStorage.removeItem('sos_user');location.reload()}}}
-function openLog(){document.getElementById('loginBox').classList.add('show')} function closeLog(){document.getElementById('loginBox').classList.remove('show')}
-function doLogin(){let p=document.getElementById('phone').value; if(p.length<11)return alert('Number দিন'); localStorage.setItem('sos_user',p); USER=p; updateUI(); closeLog(); document.querySelector('.btnLogin').innerText='ORDER NOW - '+SEL_PRICE;}
-function doOrder(){if(!USER){openLog();return;} let uid=document.getElementById('uid').value; if(!uid)return alert('Game ID দিন'); if(!SEL)return alert('Package Select করুন'); let msg=`*SOS TOPUP NEW ORDER*%0ACat: ${CUR}%0APack: ${SEL}%0APrice: ${SEL_PRICE}%0AUID: ${uid}%0APay: ${PAY}%0AUser: ${USER}`; window.open('https://wa.me/8801705780185?text='+msg,'_blank');}
-render('diamond'); updateUI();
+let SEL=""; let SEL_PRICE=""; let USER=localStorage.getItem('sos_user');
+function render(k){let g=document.getElementById('pgrid'); let list=DATA[k]; let h=""; list.forEach(p=>{h+=`<div class="pi" onclick="goCheckout('${p[0]}','${p[1]}')"><div class="pn">${p[0]}</div><div class="pp">${p[1]}</div></div>`}); g.innerHTML=h; document.getElementById('ptitle').innerText=k.toUpperCase()+' - Package Select করুন';}
+function showPkg(k,el){document.querySelectorAll('.cc').forEach(e=>e.classList.remove('on')); el.classList.add('on'); render(k); document.getElementById('pkgSec').scrollIntoView({behavior:'smooth'});}
+function goCheckout(name,price){if(!USER){oL();return;} SEL=name; SEL_PRICE=price; document.getElementById('home').classList.remove('active'); document.getElementById('checkout').classList.add('active'); document.getElementById('ctitle').innerText=name; document.getElementById('cprice').innerText=price; document.getElementById('need').innerText=price; document.getElementById('btnPrice').innerText=price; window.scrollTo(0,0);}
+function goHome(){document.getElementById('checkout').classList.remove('active'); document.getElementById('home').classList.add('active');}
+function checkN(){let u=document.getElementById('uid').value; if(!u)return alert('UID দিন'); document.getElementById('nres').style.display='block'; document.getElementById('nres').innerText='✅ Verified: Player '+u.slice(-4);}
+function uu(){if(USER){document.getElementById('un').innerText=USER;document.getElementById('lb').innerText='LOGOUT';document.getElementById('lb').onclick=()=>{localStorage.removeItem('sos_user');location.reload()}}}
+function oL(){document.getElementById('log').classList.add('show')} function cL(){document.getElementById('log').classList.remove('show')}
+function dL(){let p=document.getElementById('ph').value; if(p.length<11)return alert('Number দিন'); localStorage.setItem('sos_user',p); USER=p; uu(); cL();}
+function orderNow(){let uid=document.getElementById('uid').value; let trx=document.getElementById('trx').value; if(!uid)return alert('UID দিন'); if(!trx)return alert('TrxID দিন'); let msg=`*SOS TOPUP ORDER*%0APack: ${SEL}%0APrice: ${SEL_PRICE}%0AUID: ${uid}%0ATrx: ${trx}%0AUser: ${USER}`; window.open('https://wa.me/8801705780185?text='+msg,'_blank');}
+render('weekly'); uu();
 </script></body></html>
