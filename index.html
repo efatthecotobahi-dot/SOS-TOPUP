@@ -1,43 +1,35 @@
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SOS TOPUP - EFAT VAI - কম দামে বেশি ডায়মন্ড</title>
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SOS TOPUP - EFAT VAI</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#eef4ff;padding-bottom:80px}
 .head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px #0001}
 .logo{font-weight:900;font-size:18px;color:#0057ff;display:flex;align-items:center;gap:8px}
-.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#0057ff,#00d4ff);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-style:italic;font-weight:900}
-.notice{background:#0057ff;color:#fff;padding:8px 0;display:flex;overflow:hidden;align-items:center}
+.logo-icon{width:36px;height:36px;background:#0057ff;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.notice{background:#0057ff;color:#fff;padding:8px 0;display:flex;overflow:hidden}
 .notice b{background:#fff;color:#0057ff;padding:4px 10px;border-radius:6px;margin:0 10px;font-size:12px;flex-shrink:0}
-.marq{white-space:nowrap;animation:marq 20s linear infinite;font-weight:600;font-size:13px}
+.marq{white-space:nowrap;animation:marq 20s linear infinite;font-size:13px;font-weight:600}
 @keyframes marq{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}
-.banner{margin:12px;background:linear-gradient(105deg,#001a4d 0%, #0057ff 60%, #00d4ff 100%);border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;color:#fff;position:relative;overflow:hidden}
-.banner::after{content:'';position:absolute;right:-20px;top:-20px;width:100px;height:100px;background:#fff2;border-radius:50%}
-.banner-text h2{font-size:16px;line-height:1.3}
-.banner-text p{font-size:11px;opacity:.9;margin-top:4px}
-.banner-img{width:70px;height:70px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0}
-.btns{display:flex;gap:10px;padding:0 12px}
-.btns a{flex:1;padding:12px;border-radius:12px;text-align:center;font-weight:800;text-decoration:none;font-size:13px}
-.btn-blue{background:#0057ff;color:#fff}
-.btn-white{background:#fff;color:#0057ff;border:2px solid #0057ff}
-.sec-title{font-weight:900;padding:18px 14px 8px;font-size:15px;display:flex;justify-content:space-between}
+.banner{margin:12px;background:linear-gradient(105deg,#001a4d,#0057ff);border-radius:18px;padding:18px;color:#fff;display:flex;gap:14px;align-items:center}
+.banner-icon{width:70px;height:70px;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+.btns{padding:0 12px}
+.btns a{display:block;background:#0057ff;color:#fff;padding:14px;border-radius:12px;text-align:center;font-weight:800;text-decoration:none}
+.sec-title{font-weight:900;padding:18px 14px 8px;font-size:15px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;transition:.2s;border:2px solid transparent}
-.card:active{transform:scale(.96);border-color:#0057ff}
-.card img{width:100%;height:115px;object-fit:cover;display:block}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer}
+.card img{width:100%;height:130px;object-fit:cover;display:block}
 .card p{padding:10px;font-weight:800;font-size:12px;text-align:center}
-.card span{color:#ff5a00;font-size:11px;display:block}
+.card span{color:#ff5a00;display:block;font-size:11px}
 .page{display:none}.page.active{display:block}
 .box{background:#fff;border-radius:16px;padding:14px;margin:12px}
 .rech{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.rech div{border:2px solid #dde6ff;border-radius:12px;padding:12px;text-align:center;font-size:12px;font-weight:700;cursor:pointer}
-.rech div.sel{border-color:#0057ff;background:#eef4ff;color:#0057ff}
+.rech div{border:2px solid #dde6ff;border-radius:12px;padding:12px;text-align:center;font-size:12px;font-weight:700}
+.rech div.sel{border-color:#0057ff;background:#eef4ff}
 .inp{width:100%;padding:12px;border:2px solid #dde6ff;border-radius:10px;margin-top:8px}
-.btn-order{width:100%;padding:14px;background:#0057ff;color:#fff;border:none;border-radius:12px;font-weight:900;margin-top:12px;font-size:15px}
+.btn-order{width:100%;padding:14px;background:#0057ff;color:#fff;border:none;border-radius:12px;font-weight:900;margin-top:12px}
 #loginBox{position:fixed;inset:0;background:#0009;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
 #loginBox.show{display:flex}
 .loginCard{background:#fff;width:100%;max-width:340px;border-radius:20px;padding:22px;text-align:center}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;z-index:99}
-.bottom div{text-align:center;font-size:11px;color:#888}
-.bottom.on{color:#0057ff;font-weight:800}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd}
 </style></head><body>
 <div class="head">
 <div class="logo"><div class="logo-icon">S</div> SOS TOPUP</div>
@@ -45,79 +37,39 @@ body{background:#eef4ff;padding-bottom:80px}
 </div>
 
 <div id="home" class="page active">
-<div class="notice"><b>NOTICE</b><div style="overflow:hidden;flex:1"><div class="marq" id="noticeText">🔥 SOS TOPUP - OWNER EFAT VAI - কম দামে বেশি ডায়মন্ড - 24 ঘন্টা সার্ভিস - WhatsApp 01705780185 🔥</div></div></div>
+<div class="notice"><b>NOTICE</b><div style="overflow:hidden;flex:1"><div class="marq">🔥 SOS TOPUP - OWNER EFAT VAI - কম দামে বেশি ডায়মন্ড - 24 ঘন্টা সার্ভিস - 01705780185 🔥</div></div></div>
+<div class="banner"><div class="banner-icon">🎮</div><div><h2 style="font-size:15px">যেকোনো সমস্যায় WhatsApp এ মেসেজ দিন</h2><p style="font-size:11px;opacity:.9;margin-top:4px">Fast • Safe • Trusted • EFAT VAI</p></div></div>
+<div class="btns"><a href="https://wa.me/8801705780185">💬 WhatsApp Support - 01705780185</a></div>
 
-<div class="banner">
-<div class="banner-img">🎮</div>
-<div class="banner-text"><h2>যেকোনো সহায়তা বা সমস্যার জন্য আমাদের Support এ যোগাযোগ করুন</h2><p>Fast • Safe • Trusted • OWNER: EFAT VAI</p></div>
+<div class="sec-title">🔥 BONUS OFFER</div>
+<div class="grid">
+<div class="card" onclick="openTop('friday','FRIDAY OFFER')"><img src="IMG-20260920-WA7034.jpg"><p>FRIDAY OFFER<span>50 TK</span></p></div>
+<div class="card" onclick="openTop('fflike','FF LIKE')"><img src="IMG-20260920-WA9575.jpg"><p>FF LIKE 200<span>30 TK</span></p></div>
+<div class="card" onclick="openTop('diamond','25 DIAMOND')"><img src="IMG-20260920-WA1879.jpg"><p>25 DIAMOND<span>23 TK</span></p></div>
+<div class="card" onclick="openTop('weekly','WEEKLY')"><img src="IMG-20260920-WA8156.jpg"><p>WEEKLY<span>160 TK</span></p></div>
+<div class="card" onclick="openTop('monthly','MONTHLY')"><img src="IMG-20260920-WA5260.jpg"><p>MONTHLY<span>770 TK</span></p></div>
+<div class="card" onclick="openTop('level','LEVEL UP')"><img src="IMG-20260920-WA1879.jpg"><p>LEVEL UP<span>40 TK</span></p></div>
 </div>
-
-<div class="btns">
-<a class="btn-blue" href="https://wa.me/8801705780185">💬 WhatsApp Support</a>
-<a class="btn-white" href="https://t.me/">✈ Telegram</a>
-</div>
-
-<div class="sec-title">🔥 BONUS OFFER <span style="color:#0057ff;font-size:12px" onclick="alert('নিচের OFFERS array থেকে নতুন অফার যোগ করো')">+ Add New</span></div>
-<div class="grid" id="offerGrid"></div>
-
-<div class="sec-title">🎮 ALL PACKAGES - 23 TK থেকে</div>
-<div class="grid" id="allGrid"></div>
 </div>
 
 <div id="topup" class="page">
 <div class="box"><button onclick="showHome()" style="border:none;background:#eee;padding:8px 14px;border-radius:20px">← Back</button>
-<div style="display:flex;gap:10px;margin-top:12px;align-items:center"><img id="tImg" src="" style="width:60px;height:60px;border-radius:12px;object-fit:cover"><div><b id="tTitle"></b><br><small style="color:green">⚡ 2 Sec Delivery - Efat Vai</small></div></div></div>
-<div class="box"><b>1. Package Select করো</b><div id="pkgList" class="rech"></div></div>
-<div class="box"><b>2. UID দাও</b><input id="uid" class="inp" placeholder="Game UID"><b style="display:block;margin-top:12px">3. TrxID (bKash 01705780185)</b><input id="trx" class="inp" placeholder="TrxID"><button onclick="doOrder()" class="btn-order">✅ ORDER NOW</button></div>
+<div style="display:flex;gap:10px;margin-top:12px"><img id="tImg" src="" style="width:60px;height:60px;border-radius:12px"><div><b id="tTitle"></b><br><small style="color:green">⚡ Fast Delivery</small></div></div></div>
+<div class="box"><b>Package Select</b><div id="pkgList" class="rech"></div></div>
+<div class="box"><b>UID</b><input id="uid" class="inp" placeholder="UID"><b style="display:block;margin-top:12px">TrxID (bKash 01705780185)</b><input id="trx" class="inp" placeholder="TrxID"><button onclick="doOrder()" class="btn-order">ORDER NOW</button></div>
 </div>
 
-<div id="loginBox"><div class="loginCard">
-<h3>🔐 LOGIN</h3><p style="font-size:12px;color:#666;margin:8px 0">Login করলেই Order দিতে পারবে, Telegram এ যাবে না!</p>
-<input id="phone" class="inp" placeholder="Phone - 017..."><input id="pass" class="inp" type="password" placeholder="Password">
-<button onclick="doLogin()" class="btn-order">LOGIN করুন</button>
-<button onclick="closeLog()" style="border:none;background:none;margin-top:10px;color:#888">Close</button>
-</div></div>
-
-<div class="bottom"><div class="on">⌂<br>Home</div><div>▶<br>Tutorial</div><div>⊞<br>TopUp</div><div>☎<br>Contact</div></div>
-
+<div id="loginBox"><div class="loginCard"><h3>LOGIN</h3><input id="phone" class="inp" placeholder="Phone"><input id="pass" class="inp" type="password" placeholder="Password"><button onclick="doLogin()" class="btn-order">LOGIN</button><button onclick="closeLog()" style="border:none;background:none;margin-top:10px;color:#888">Close</button></div></div>
+<div class="bottom"><div style="color:#0057ff;font-weight:800">⌂<br>Home</div><div>▶<br>Tutorial</div><div>⊞<br>TopUp</div><div>☎<br>Contact</div></div>
 <script>
-// ========= এখান থেকে সব Change করতে পারবে =========
-const NOTICE = "🔥 SOS TOPUP - OWNER EFAT VAI - কম দামে বেশি ডায়মন্ড - 24 ঘন্টা সার্ভিস - 01705780185 🔥";
-const OFFERS = [
-{title:"FRIDAY OFFER",price:"50 TK",img:"https://i.ibb.co/3yQ4d7K/ff1.jpg",type:"friday"},
-{title:"FF LIKE 200",price:"30 TK",img:"https://i.ibb.co/3yQ4d7K/ff1.jpg",type:"fflike"},
-{title:"25 DIAMOND",price:"23 TK",img:"https://i.ibb.co/3yQ4d7K/ff1.jpg",type:"diamond"},
-{title:"WEEKLY",price:"160 TK",img:"https://i.ibb.co/3yQ4d7K/ff1.jpg",type:"weekly"},
-{title:"MONTHLY",price:"770 TK",img:"https://i.ibb.co/3yQ4d7K/ff1.jpg",type:"monthly"},
-{title:"LEVEL UP",price:"40 TK",img:"https://i.ibb.co/3yQ4d7K/ff1.jpg",type:"level"},
-];
-const PKGS = {
-diamond:[["25 Diamond","23 TK"],["50 Diamond","40 TK"],["115 Diamond","79 TK"],["240 Diamond","156 TK"],["610 Diamond","395 TK"]],
-weekly:[["Weekly","160 TK"]],monthly:[["Monthly","770 TK"]],level:[["Level Up","40 TK"]],friday:[["Friday Offer","50 TK"]],fflike:[["200 Like","30 TK"]]
-};
-// ========= এখানেই শেষ, নিচে হাত দিতে হবে না =========
-
-let SEL=""; let CURR=""; let USER=localStorage.getItem('sos_user');
-document.getElementById('noticeText').innerText=NOTICE;
-
-function render(){
-let h=""; OFFERS.forEach(o=>{h+=`<div class="card" onclick="openTop('${o.type}','${o.title}')"><img src="${o.img}" onerror="this.src='https://via.placeholder.com/200x120/0057ff/ffffff?text=${o.title}'"><p>${o.title}<span>${o.price}</span></p></div>`});
-document.getElementById('offerGrid').innerHTML=h;
-document.getElementById('allGrid').innerHTML=h;
-}
-function updateUI(){if(USER){document.getElementById('uName').innerText=USER;document.getElementById('logBtn').innerText='LOGOUT';document.getElementById('logBtn').onclick=logOut}}
-function openLog(){document.getElementById('loginBox').classList.add('show')}
-function closeLog(){document.getElementById('loginBox').classList.remove('show')}
-function doLogin(){let p=document.getElementById('phone').value; if(p.length<11)return alert('Number দাও'); localStorage.setItem('sos_user',p); USER=p; updateUI(); closeLog(); alert('Login Done! এখন যেকোনো Package এ ক্লিক করো');}
-function logOut(){localStorage.removeItem('sos_user'); location.reload()}
+let SEL=""; let USER=localStorage.getItem('sos_user');
+const PKGS={diamond:[["25 Diamond","23 TK"],["50 Diamond","40 TK"],["115 Diamond","79 TK"],["240 Diamond","156 TK"]],weekly:[["Weekly","160 TK"]],monthly:[["Monthly","770 TK"]],level:[["Level Up","40 TK"]],friday:[["Friday Offer","50 TK"]],fflike:[["200 Like","30 TK"]]};
+const IMGS={diamond:"IMG-20260920-WA1879.jpg",weekly:"IMG-20260920-WA8156.jpg",monthly:"IMG-20260920-WA5260.jpg",level:"IMG-20260920-WA1879.jpg",friday:"IMG-20260920-WA7034.jpg",fflike:"IMG-20260920-WA9575.jpg"};
+function updateUI(){if(USER){document.getElementById('uName').innerText=USER;document.getElementById('logBtn').innerText='LOGOUT';document.getElementById('logBtn').onclick=()=>{localStorage.removeItem('sos_user');location.reload()}}}
+function openLog(){document.getElementById('loginBox').classList.add('show')} function closeLog(){document.getElementById('loginBox').classList.remove('show')}
+function doLogin(){let p=document.getElementById('phone').value; if(p.length<11)return alert('Number দাও'); localStorage.setItem('sos_user',p); USER=p; updateUI(); closeLog();}
 function showHome(){document.getElementById('home').classList.add('active'); document.getElementById('topup').classList.remove('active')}
-function openTop(type,title){
-if(!USER){ openLog(); return; }
-CURR=type; document.getElementById('home').classList.remove('active'); document.getElementById('topup').classList.add('active');
-document.getElementById('tTitle').innerText=title; document.getElementById('tImg').src=OFFERS.find(x=>x.type==type)?.img || '';
-let list=PKGS[type]||PKGS.diamond; let html=""; list.forEach((p,i)=>{html+=`<div id="r${i}" onclick="SEL='${p[0]} - ${p[1]}';document.querySelectorAll('.rech div').forEach(e=>e.classList.remove('sel'));this.classList.add('sel')">${p[0]}<b style="display:block;color:#ff5a00">${p[1]}</b></div>`});
-document.getElementById('pkgList').innerHTML=html;
-}
-function doOrder(){let u=document.getElementById('uid').value; let tr=document.getElementById('trx').value; if(!SEL)return alert('Package Select করো'); if(!u)return alert('UID দাও'); if(!tr)return alert('TrxID দাও'); let msg=`*SOS TOPUP*%0AUser:${USER}%0APackage:${SEL}%0AUID:${u}%0ATrx:${tr}`; window.open('https://wa.me/8801705780185?text='+msg,'_blank')}
-render(); updateUI();
+function openTop(type,title){if(!USER){openLog();return;} document.getElementById('home').classList.remove('active'); document.getElementById('topup').classList.add('active'); document.getElementById('tTitle').innerText=title; document.getElementById('tImg').src=IMGS[type]; let list=PKGS[type]||PKGS.diamond; let html=""; list.forEach(p=>{html+=`<div onclick="SEL='${p[0]} - ${p[1]}';document.querySelectorAll('.rech div').forEach(e=>e.classList.remove('sel'));this.classList.add('sel')">${p[0]}<b style="display:block;color:#ff5a00">${p[1]}</b></div>`}); document.getElementById('pkgList').innerHTML=html;}
+function doOrder(){let u=document.getElementById('uid').value; let tr=document.getElementById('trx').value; if(!SEL)return alert('Package Select করো'); if(!u)return alert('UID দাও'); if(!tr)return alert('TrxID দাও'); window.open('https://wa.me/8801705780185?text=*SOS*%0AUser:'+USER+'%0APkg:'+SEL+'%0AUID:'+u+'%0ATrx:'+tr,'_blank')}
+updateUI();
 </script></body></html>
