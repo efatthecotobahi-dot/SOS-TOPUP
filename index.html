@@ -1,83 +1,113 @@
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SOS TOPUP - TOP UP YOUR LIFE</title>
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>SOS TOPUP - সব ক্লিক কাজ করবে</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Hind Siliguri,sans-serif}
-body{background:#f0f4ff;padding-bottom:80px}
-.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;box-shadow:0 2px 12px #0001;position:sticky;top:0;z-index:100}
-.logo{font-weight:900;font-size:20px;color:#0a3fff;display:flex;align-items:center;gap:6px}
-.logo span{color:#000;font-size:10px;font-weight:400;display:block;margin-top:-2px;letter-spacing:2px}
-.login{background:#0a3fff;color:#fff;border:none;padding:8px 18px;border-radius:8px;font-weight:700}
-.title{font-weight:900;font-size:20px;text-align:center;margin:18px 0 12px;color:#102a6b;letter-spacing:.5px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 12px}
-@media(max-width:600px){.grid3{grid-template-columns:1fr 1fr}}
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 15px #0001;border:1px solid #e3e8ff}
-.card img{width:100%;height:125px;object-fit:cover}
-.card p{text-align:center;font-weight:700;font-size:12px;padding:10px 4px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd;z-index:99}
-.bottom div{text-align:center;font-size:11px;color:#777}
-.bottom b{display:block;font-size:20px}
-.bottom .active{color:#0a3fff}
-.modal{position:fixed;inset:0;background:#0007;display:none;align-items:center;justify-content:center;z-index:999}
-.modal.on{display:flex}
-.box{background:#fff;width:92%;max-width:400px;border-radius:18px;padding:16px}
-.input{width:100%;padding:12px;border:2px solid #dbe4ff;border-radius:10px;margin-top:8px}
-.btn{width:100%;padding:12px;background:#0a3fff;color:#fff;border:none;border-radius:30px;font-weight:800;margin-top:10px}
-.pay{border:2px solid #eee;border-radius:12px;padding:10px;margin-top:8px;display:flex;justify-content:space-between}
-.pay.on{border-color:#0a3fff;background:#eef2ff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f2f6ff;padding-bottom:80px}
+.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
+.logo{font-weight:900;color:#0a3fff;font-size:22px}
+.btn-login{background:#0a3fff;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:800}
+.page{display:none;padding:12px}.page.active{display:block}
+.grid{ display:grid;grid-template-columns:1fr 1fr;gap:12px }
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 12px #0001;border:1px solid #e8eeff}
+.card img{width:100%;height:120px;object-fit:cover;display:block}
+.card p{text-align:center;padding:10px;font-weight:800;font-size:13px}
+.title{font-weight:900;text-align:center;margin:16px 0;font-size:18px;color:#1a2a6b}
+.rech{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rech div{background:#fff;border:2px solid #e3e8ff;border-radius:12px;padding:12px;text-align:center;cursor:pointer}
+.rech div.sel{border-color:#0a3fff;background:#eef3ff}
+.rech b{display:block;color:#ff6a00;margin-top:4px}
+.box{background:#fff;border-radius:12px;padding:12px;margin-top:12px}
+.input{width:100%;padding:12px;border:2px solid #dce6ff;border-radius:10px;margin-top:8px;font-size:16px}
+.btn{width:100%;padding:13px;background:#0a3fff;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:10px;font-size:16px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;z-index:99}
+#loginModal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;z-index:999}
+#loginModal.show{display:flex}
 </style></head><body>
 
 <div class="head">
-<div class="logo">🚀 SOS TOPUP <div><span>TOP UP YOUR LIFE</span></div></div>
-<button class="login" onclick="alert('Login System পরে Add করবো - এখন Guest Order')">Login</button>
+<div class="logo">SOS TOPUP</div>
+<button class="btn-login" id="loginBtn">Login</button>
 </div>
 
+<div id="homePage" class="page active">
 <div class="title">BONUS OFFER</div>
-<div class="grid2">
-<div class="card" onclick="openPkg('PREMIUM USER -500 TK')"><img src="https://via.placeholder.com/300x300/1e3fff/fff?text=PREMIUM+USER"><p>PREMIUM USER</p></div>
-<div class="card" onclick="openPkg('FRIDAY OFFER - Stook Out"><img src="https://via.placeholder.com/300x300/0b5fff/fff?text=FRIDAY+OFFER"><p>FRAIDAY OFFER</p></div>
+<div class="grid">
+<div class="card" data-type="bonus"><img src="https://via.placeholder.com/300x300/1a3fff/fff?text=PREMIUM+USER"><p>PREMIUM USER</p></div>
+<div class="card" data-type="bonus"><img src="https://via.placeholder.com/300x300/0066ff/fff?text=FRIDAY+OFFER"><p>FRIDAY OFFER</p></div>
 </div>
-
 <div class="title">GAMES TOPUP</div>
-<div class="grid3">
-<div class="card" onclick="openPkg('FF LIKE - 300 Like - 40 TK')"><img src="https://via.placeholder.com/300x300/1e90ff/fff?text=FF+LIKE"><p>FF LIKE</p></div>
-<div class="card" onclick="openPkg('Uid TopUp BD - 25 Diamond')"><img src="https://via.placeholder.com/300x300/ff3b30/fff?text=UID+TOPUP"><p>Uid TopUp (BD)</p></div>
-<div class="card" onclick="openPkg('Weekly Lite BD Server')"><img src="https://via.placeholder.com/300x300/f5a623/fff?text=WEEKLY+LITE"><p>Weekly Lite (BD Server)</p></div>
-<div class="card" onclick="openPkg('Weekly/Monthly Offer')"><img src="https://via.placeholder.com/300x300/8b5cf6/fff?text=WEEKLY/MONTHLY"><p>Weekly/Monthly Offer</p></div>
-<div class="card" onclick="openPkg('New Level Up Pass')"><img src="https://via.placeholder.com/300x300/10b981/fff?text=LEVEL+UP+PASS"><p>New Level Up Pass</p></div>
-<div class="card" onclick="openPkg('Indonesia Server UID')"><img src="https://via.placeholder.com/300x300/ef4444/fff?text=INDO+SERVER"><p>Indonesia Server (UID)</p></div>
+<div class="grid">
+<div class="card" data-type="diamond"><img src="https://via.placeholder.com/300x300/ff3b30/fff?text=UID+TOPUP"><p>Uid TopUp (BD) - 23TK</p></div>
+<div class="card" data-type="weekly"><img src="https://via.placeholder.com/300x300/f5a623/fff?text=WEEKLY+160TK"><p>Weekly Lite - 160 TK</p></div>
+<div class="card" data-type="weeklymonthly"><img src="https://via.placeholder.com/300x300/8b5cf6/fff?text=MONTHLY+770TK"><p>Monthly - 770 TK</p></div>
+<div class="card" data-type="level"><img src="https://via.placeholder.com/300x300/10b981/fff?text=LEVEL+UP"><p>Level Up Pass</p></div>
+</div>
 </div>
 
-<div class="bottom">
-<div class="active"><b>⌂</b>Home</div><div><b>▶</b>Tutorial</div><div><b>⊞</b>TopUp</div><div><b>☎</b>Contact Us</div>
-</div>
-
-<!-- ORDER MODAL -->
-<div class="modal" id="m"><div class="box">
-<h3 id="pN"></h3>
-<div id="st1">
-<label style="font-weight:800">🎮 UID দাও:</label><input id="uid" class="input" type="number" placeholder="Free Fire UID">
-<p id="gName" style="color:green;font-weight:700;margin-top:6px"></p>
-<button class="btn"  ➡️</btton>
-</div>
-<div id="st2" style="display:none">
-<p style="font-weight:700">💳 পেমেন্ট:</p>
-<div class="pay on" id="p1" onclick="sel('bKash Direct','p1')"><span><b>bKash Direct</b><br><small>01705780185</small></span>💵</div>
-<div class="pay" id="p2" onclick="sel('App Auto','p2')"><span><b>App Auto</b></span>⚡</div>
+<div id="topupPage" class="page">
+<button id="backBtn" style="background:#eee;border:none;padding:8px 14px;border-radius:20px">← Back</button>
+<div class="box" style="display:flex;gap:10px;align-items:center;margin-top:10px"><img id="tImg" src="" style="width:60px;height:60px;border-radius:10px;background:#ddd"><div><b id="tTitle">PACKAGE</b><br><small style="color:green">⚡ 2 সেকেন্ডে টপআপ</small></div></div>
+<div class="box"><b>1. Select Recharge</b><div id="rechargeList" class="rech" style="margin-top:10px"></div></div>
+<div class="box"><b>2. Account Info</b><p style="font-size:13px;margin-top:6px">এখানে গেমের আইডি কোড দিন</p><input id="uid" class="input" placeholder="UID দিন"></div>
+<div class="box"><b>3. Payment</b>
 <div style="background:#ffe9ec;padding:10px;border-radius:10px;margin-top:10px">
-<p style="font-size:12px"><b>bKash Personal:</b> <b style="color:red">01705780185</b> <button onclick="navigator.clipboard.writeText('01705780185');alert('Copy')" style="background:#0a3fff;color:#fff;border:none;padding:2px 8px;border-radius:10px">Copy</button></p>
-<p style="font-size:11px;margin-top:6px">📌 কিভাবে পাঠাবে: bKash App > Send Money > 01705780185 > Amount > TrxID কপি করো<br>🔍 TrxID কোথায়? History তে পাবা যেমন: 8G12A3B4C5</p>
+<p><b>bKash Personal: <span style="color:red">01705780185</span></b> <button id="copyBtn" style="background:#0a3fff;color:#fff;border:none;padding:4px 10px;border-radius:8px;margin-left:6px">Copy</button></p>
+<p style="font-size:12px;margin-top:6px">Send Money করে TrxID কপি করো</p>
+<input id="trx" class="input" placeholder="TrxID দিন">
 </div>
-<input id="trx" class="input" placeholder="TrxID লিখো">
-<button class="btn" onclick="order()">✅ Order Complete</button>
+<button id="orderBtn" class="btn">✅ অর্ডার করুন (WhatsApp)</button>
 </div>
-<button class="btn" style="background:#eee;color:#000" onclick="document.getElementById('m').classList.remove('on')">Close</button>
-</div></div>
+</div>
+
+<div id="loginModal"><div style="background:#fff;width:90%;max-width:350px;border-radius:16px;padding:16px"><h3>Login</h3><input class="input" placeholder="Phone Number"><input class="input" type="password" placeholder="Password" style="margin-top:8px"><button class="btn" onclick="document.getElementById('loginModal').classList.remove('show')">Login (Demo)</button><button class="btn" style="background:#eee;color:#000" onclick="document.getElementById('loginModal').classList.remove('show')">Close</button></div></div>
+
+<div class="bottom"><div>⌂<br>Home</div><div>▶<br>Tutorial</div><div style="color:#0a3fff">⊞<br>TopUp</div><div>☎<br>Contact</div></div>
 
 <script>
-let PK="",PAY="bKash Direct";
-function openPkg(n){PK=n;document.getElementById('pN').innerText=n;document.getElementById('m').classList.add('on');document.getElementById('st1').style.display='block';document.getElementById('st2').style.display='none'}
-function checkName(){let u=document.getElementById('uid').value;if(!u)return alert('UID দাও');document.getElementById('gName').innerText='✅ Player: SOS_GAMER_'+u.slice(-3)+' (Verified)';setTimeout(()=>{document.getElementById('st1').style.display='none';document.getElementById('st2').style.display='block'},600)}
-function sel(t,i){PAY=t;document.querySelectorAll('.pay').forEach(e=>e.classList.remove('on'));document.getElementById(i).classList.add('on')}
-function order(){let uid=document.getElementById('uid').value,trx=document.getElementById('trx').value;if(!uid||!trx)return alert('UID + TrxID দাও');let msg=`*SOS TOPUP ORDER*%0APackage: ${PK}%0AUID: ${uid}%0APayment: ${PAY}%0ATrxID: ${trx}`;window.open('https://wa.me/8801705780185?text='+msg,'_blank')}
+// সব ক্লিক এখানে - 100% কাজ করবে
+let SELECTED = "";
+document.getElementById('loginBtn').addEventListener('click', ()=>{document.getElementById('loginModal').classList.add('show')});
+document.getElementById('backBtn').addEventListener('click', ()=>{document.getElementById('topupPage').classList.remove('active');document.getElementById('homePage').classList.add('active')});
+document.getElementById('copyBtn').addEventListener('click', ()=>{navigator.clipboard.writeText('01705780185');alert('01705780185 Copy Done')});
+
+const DATA={
+diamond:[["Weekly","160 TK"],["Monthly","770 TK"],["25 Diamond","23 TK"],["50 Diamond","40 TK"],["115 Diamond","79 TK"],["240 Diamond","156 TK"],["355 Diamond","237 TK"],["505 Diamond","336 TK"],["610 Diamond","395 TK"],["850 Diamond","558 TK"],["1090 Diamond","716 TK"]],
+weekly:[["Weekly Lite","160 TK"],["2x Weekly","320 TK"],["Monthly","770 TK"]],
+weeklymonthly:[["Weekly","160 TK"],["Monthly","770 TK"],["2X Monthly","1540 TK"],["3X Monthly","2310 TK"]],
+level:[["Level 6","40 TK"],["Level 10","75 TK"],["Full Level Up","415 TK"]],
+bonus:[["Premium User","100 TK"],["Friday Offer","50 TK"]]
+};
+
+function openTopup(type){
+document.getElementById('homePage').classList.remove('active');
+document.getElementById('topupPage').classList.add('active');
+document.getElementById('tTitle').innerText=type.toUpperCase();
+let list=DATA[type]||DATA.diamond;
+let html="";
+list.forEach((p,i)=>{
+html+=`<div id="r${i}" onclick="pickPkg(${i},'${p[0]} - ${p[1]}')">${p[0]}<b>${p[1]}</b></div>`;
+});
+document.getElementById('rechargeList').innerHTML=html;
+window.scrollTo(0,0);
+}
+window.pickPkg=(i,name)=>{
+SELECTED=name;
+document.querySelectorAll('.rech div').forEach(e=>e.classList.remove('sel'));
+document.getElementById('r'+i).classList.add('sel');
+}
+
+document.querySelectorAll('.card').forEach(c=>{
+c.addEventListener('click', ()=>{openTopup(c.getAttribute('data-type'))});
+});
+
+document.getElementById('orderBtn').addEventListener('click', ()=>{
+let uid=document.getElementById('uid').value;
+let trx=document.getElementById('trx').value;
+if(!SELECTED) return alert('প্যাকেজ সিলেক্ট করো');
+if(!uid) return alert('UID দাও');
+if(!trx) return alert('TrxID দাও');
+let msg=`*SOS TOPUP ORDER*%0APackage: ${SELECTED}%0AUID: ${uid}%0ATrxID: ${trx}`;
+window.open('https://wa.me/8801705780185?text='+msg,'_blank');
+});
 </script></body></html>
