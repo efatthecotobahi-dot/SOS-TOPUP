@@ -6,10 +6,10 @@
 <title>SOS TOPUP</title>
 <style>
 body{margin:0;background:#eef1ff;font-family:sans-serif}
-.top{background:#fff;padding:12px;text-align:center;font-weight:900;color:#5a2eff;box-shadow:0 2px 5px #0002}
+.top{background:#fff;padding:12px;text-align:center;font-weight:900;color:#5a2eff}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
 .box{background:#fff;border-radius:12px;overflow:hidden;border:2px solid #5a2eff}
-.box img{width:100%;height:160px;object-fit:cover;display:block}
+.box img{width:100%;height:170px;object-fit:cover;display:block}
 .box p{text-align:center;padding:8px;font-weight:800;font-size:13px}
 .order{background:#fff;margin:10px;padding:12px;border-radius:12px}
 input{width:100%;padding:12px;margin-top:8px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
@@ -18,32 +18,19 @@ button{width:100%;padding:12px;margin-top:8px;background:#00a84f;color:#fff;bord
 </head>
 <body>
 <div class="top">SOS TOPUP - 01705780185</div>
-
 <div class="grid">
-<div class="box"><img src="1.jpg"><p>Weekly</p></div>
-<div class="box"><img src="2.jpg"><p>Weekly Lite</p></div>
-<div class="box"><img src="3.jpg"><p>ID Code Topup BD</p></div>
-<div class="box"><img src="4.jpg"><p>Mantly</p></div>
-<div class="box"><img src="5.jpg"><p>LV Up Pass</p></div>
-<div class="box"><img src="6.jpg"><p>Combo Offer</p></div>
+<div class="box"><img src="IMG-20260921-WA2237.jpg"><p>Weekly</p></div>
+<div class="box"><img src="IMG-20260921-WA0622.jpg"><p>Weekly Lite</p></div>
+<div class="box"><img src="IMG-20260921-WA7763.jpg"><p>ID Code Topup BD</p></div>
+<div class="box"><img src="IMG-20260921-WA6176.jpg"><p>Mantly</p></div>
+<div class="box"><img src="IMG-20260921-WA3121.jpg"><p>LV Up Pass</p></div>
+<div class="box"><img src="IMG-20260921-WA1220.jpg"><p>Combo Offer</p></div>
 </div>
-
 <div class="order">
 <b>WhatsApp Order</b>
 <input id="uid" placeholder="Game UID লিখুন">
 <input id="trx" placeholder="TrxID লিখুন">
-<button onclick="order()">WhatsApp এ অর্ডার করুন</button>
+<button onclick="let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;if(!u||!t){alert('UID & TrxID দিন');return}window.open('https://wa.me/8801705780185?text=SOS ORDER%0AUID:'+u+'%0ATrx:'+t,'_blank')">WhatsApp এ অর্ডার করুন</button>
 </div>
-
-<script>
-function order(){
-let u=document.getElementById('uid').value;
-let t=document.getElementById('trx').value;
-if(!u){alert('UID দিন');return}
-if(!t){alert('TrxID দিন');return}
-let msg=`SOS TOPUP ORDER%0AUID: ${u}%0ATrxID: ${t}`;
-window.open('https://wa.me/8801705780185?text='+msg,'_blank');
-}
-</script>
 </body>
-</html>
+  </html>
