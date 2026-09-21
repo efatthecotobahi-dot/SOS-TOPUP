@@ -1,3 +1,38 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOS TOPUP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#eef2ff;padding-bottom:75px}
+.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
+.logo{font-weight:900;color:#5a2eff}
+.gbtn{background:#fff;border:1px solid #ddd;padding:6px 14px;border-radius:20px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dde6ff;cursor:pointer;box-shadow:0 2px 8px #0001}
+.card img{width:100%;height:108px;object-fit:contain;background:#fff;display:block}
+.card p{padding:8px 4px;text-align:center;font-weight:800;font-size:11px;min-height:36px;display:flex;align-items:center;justify-content:center;border-top:1px solid #eee}
+.page{display:none;padding:10px}.page.active{display:block}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.offer{background:#fff;border:2px solid #dde6ff;border-radius:10px;padding:10px;text-align:center;font-weight:700;font-size:12px;cursor:pointer}
+.offer.sel{border-color:#5a2eff;background:#eef0ff}
+.offer b{display:block;color:#ff5a00;margin-top:3px}
+.inp{width:100%;padding:12px;border:2px solid #dde6ff;border-radius:10px;margin-top:10px}
+.btn{width:100%;padding:13px;background:#00a84f;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:12px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd;z-index:99}
+.b-item{text-align:center;font-size:11px;font-weight:700;color:#888;cursor:pointer}
+.b-item.active{color:#5a2eff}
+</style>
+</head>
+<body>
+<div class="head">
+<div class="logo">SOS TOPUP</div>
+<div id="loginArea"><button class="gbtn" onclick="gmailLogin()"><img src="https://www.svgrepo.com/show/475656/google-color.svg" width="16"> Gmail Login</button></div>
+</div>
+
+<div id="home" class="page active">
 <div class="grid">
 <div class="card" onclick="openCat('weeklyLite')"><img src="IMG-20260921-WA2237.jpg"><p>Weekly Lite</p></div>
 <div class="card" onclick="openCat('idcode')"><img src="IMG-20260921-WA7763.jpg"><p>ID CODE TOP UP</p></div>
@@ -6,3 +41,53 @@
 <div class="card" onclick="openCat('level')"><img src="IMG-20260921-WA3121.jpg"><p>Level Up Pass</p></div>
 <div class="card" onclick="openCat('combo')"><img src="IMG-20260921-WA0622.jpg"><p>Weekly + Monthly Combo</p></div>
 </div>
+</div>
+
+<div id="catPage" class="page">
+<button onclick="showHome()" style="border:none;background:#eee;padding:7px 14px;border-radius:20px;font-weight:700">← Back</button>
+<h3 id="catTitle" style="margin:12px 0"></h3>
+<div id="offerList" class="offer-grid"></div>
+<div style="background:#fff;padding:14px;border-radius:14px;margin-top:12px">
+<input id="uid" class="inp" placeholder="Game UID">
+<input id="trx" class="inp" placeholder="Bkash TrxID">
+<button class="btn" onclick="doOrder()">WhatsApp Order</button>
+</div>
+</div>
+
+<div id="profile" class="page">
+<div style="background:#fff;padding:20px;border-radius:16px;text-align:center;margin-top:20px">
+<b id="pName">Login করুন</b><br><span id="pEmail" style="font-size:12px;color:#666"></span>
+<div style="margin-top:16px;text-align:left">
+<div style="padding:12px;border-bottom:1px solid #eee">🎮 My Orders</div>
+<div style="padding:12px;border-bottom:1px solid #eee">💬 Support - 01705780185</div>
+<div style="padding:12px;color:red" onclick="logout()" id="logoutBtn" style="display:none">🚪 Logout</div>
+</div>
+</div>
+</div>
+
+<div class="bottom">
+<div class="b-item active" onclick="nav('home',this)">⌂<br>Home</div>
+<div class="b-item" onclick="nav('profile',this)">👤<br>Profile</div>
+</div>
+
+<script>
+let SELECTED='';let USER=JSON.parse(localStorage.getItem('sos_user')||'null');
+const DATA={
+weeklyLite:{title:'Weekly Lite',list:[['1x Weekly Lite','40 TK'],['2x Weekly Lite','80 TK'],['3x Weekly Lite','120 TK'],['5x Weekly Lite','200 TK'],['10X Weekly Lite','400 TK']]},
+idcode:{title:'ID CODE TOP UP',list:[['25 Diamond','23 TK'],['50 Diamond','40 TK'],['115 Diamond','80 TK'],['240 Diamond','160 TK']]},
+weeklyOffer:{title:'Weekly Offer',list:[['Weekly','155 TK'],['2x Weekly','310 TK'],['5x Weekly','775 TK']]},
+monthly:{title:'Monthly Offer',list:[['Monthly','765 TK'],['2x Monthly','1530 TK']]},
+level:{title:'Level Up Pass',list:[['Level 10','75 TK'],['Level 20','75 TK'],['Level 30','105 TK'],['Full Level Up','415 TK']]},
+combo:{title:'Weekly + Monthly Combo',list:[['Weekly + Monthly','930 TK'],['5x Weekly + 1x Monthly','1540 TK']]}
+};
+function updateLogin(){if(USER){document.getElementById('loginArea').innerHTML='<span style="font-weight:800;font-size:12px">'+USER.name+'</span>';document.getElementById('pName').innerText=USER.name;document.getElementById('pEmail').innerText=USER.email;document.getElementById('logoutBtn').style.display='block'}}
+function gmailLogin(){let n=prompt('নাম লিখুন:');if(!n)return;let e=prompt('Gmail লিখুন:');if(!e)return;USER={name:n,email:e};localStorage.setItem('sos_user',JSON.stringify(USER));updateLogin();alert('Login Success!')}
+function logout(){localStorage.removeItem('sos_user');location.reload()}
+function nav(p,el){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(p).classList.add('active');document.querySelectorAll('.b-item').forEach(x=>x.classList.remove('active'));el.classList.add('active')}
+function showHome(){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('home').classList.add('active');document.querySelectorAll('.b-item').forEach((x,i)=>{x.classList.remove('active');if(i==0)x.classList.add('active')})}
+function openCat(c){let d=DATA[c];document.getElementById('catTitle').innerText=d.title;let h='';d.list.forEach(o=>{h+=`<div class="offer" onclick="SELECTED='${o[0]} - ${o[1]}';document.querySelectorAll('.offer').forEach(e=>e.classList.remove('sel'));this.classList.add('sel')">${o[0]}<b>${o[1]}</b></div>`});document.getElementById('offerList').innerHTML=h;document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('catPage').classList.add('active')}
+function doOrder(){if(!USER)return alert('আগে Gmail Login করুন');let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;if(!SELECTED)return alert('Offer Select করুন');if(!u||!t)return alert('UID & TrxID দিন');window.open('https://wa.me/8801705780185?text=*SOS ORDER*%0AName:'+USER.name+'%0AEmail:'+USER.email+'%0APack:'+SELECTED+'%0AUID:'+u+'%0ATrx:'+t,'_blank')}
+updateLogin();
+</script>
+</body>
+  </html>
