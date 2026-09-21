@@ -9,11 +9,11 @@
 body{background:#eef2ff;padding-bottom:70px}
 .head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
 .logo{font-weight:900;color:#5a2eff}
-.gbtn{background:#fff;border:1px solid #ddd;padding:6px 14px;border-radius:20px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer}
+.gbtn{background:#fff;border:1px solid #ddd;padding:6px 14px;border-radius:20px;font-weight:700;display:flex;align-items:center;gap:6px}
 .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px}
-.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dde6ff;cursor:pointer;box-shadow:0 2px 8px #0001}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dde6ff;cursor:pointer}
 .card img{width:100%;height:108px;object-fit:contain;background:#fff;display:block}
-.card p{padding:8px 4px;text-align:center;font-weight:800;font-size:11px;line-height:13px;min-height:36px;display:flex;align-items:center;justify-content:center;border-top:1px solid #eee}
+.card p{padding:8px 4px;text-align:center;font-weight:800;font-size:11px;min-height:36px;display:flex;align-items:center;justify-content:center;border-top:1px solid #eee}
 .page{display:none;padding:10px}.page.active{display:block}
 .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .offer{background:#fff;border:2px solid #dde6ff;border-radius:10px;padding:10px;text-align:center;font-weight:700;font-size:12px;cursor:pointer}
@@ -21,11 +21,9 @@ body{background:#eef2ff;padding-bottom:70px}
 .offer b{display:block;color:#ff5a00;margin-top:3px}
 .inp{width:100%;padding:12px;border:2px solid #dde6ff;border-radius:10px;margin-top:10px}
 .btn{width:100%;padding:13px;background:#00a84f;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:12px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd;z-index:99}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd}
 .b-item{text-align:center;font-size:11px;font-weight:700;color:#888;cursor:pointer}
 .b-item.active{color:#5a2eff}
-.profile-card{background:#fff;padding:20px;border-radius:16px;text-align:center;margin-top:20px}
-.avatar{width:70px;height:70px;background:#5a2eff;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:900}
 </style>
 </head>
 <body>
@@ -36,12 +34,12 @@ body{background:#eef2ff;padding-bottom:70px}
 
 <div id="home" class="page active">
 <div class="grid">
-<div class="card" onclick="openCat('like')"><img src="IMG-20260921-WA0622.jpg"><p>FF LIKE</p></div>
-<div class="card" onclick="openCat('uid')"><img src="IMG-20260921-WA7763.jpg"><p>Uid TopUp (BD)</p></div>
-<div class="card" onclick="openCat('lite')"><img src="IMG-20260921-WA2237.jpg"><p>Weekly Lite (BD Server)</p></div>
-<div class="card" onclick="openCat('combo')"><img src="IMG-20260921-WA6176.jpg"><p>Weekly/Monthly Offer</p></div>
-<div class="card" onclick="openCat('level')"><img src="IMG-20260921-WA3121.jpg"><p>New Level Up Pass</p></div>
-<div class="card" onclick="openCat('indo')"><img src="IMG-20260921-WA1220.jpg"><p>Indonesia Server (UID)</p></div>
+<div class="card" onclick="openCat('weeklyLite')"><img src="IMG-20260921-WA2237.jpg"><p>Weekly Lite</p></div>
+<div class="card" onclick="openCat('idcode')"><img src="IMG-20260921-WA7763.jpg"><p>ID CODE TOP UP</p></div>
+<div class="card" onclick="openCat('weeklyOffer')"><img src="IMG-20260921-WA1220.jpg"><p>Weekly Offer</p></div>
+<div class="card" onclick="openCat('monthly')"><img src="IMG-20260921-WA6176.jpg"><p>Monthly Offer</p></div>
+<div class="card" onclick="openCat('level')"><img src="IMG-20260921-WA3121.jpg"><p>Level Up Pass</p></div>
+<div class="card" onclick="openCat('combo')"><img src="IMG-20260921-WA1220.jpg"><p>Weekly + Monthly Combo</p></div>
 </div>
 </div>
 
@@ -57,15 +55,12 @@ body{background:#eef2ff;padding-bottom:70px}
 </div>
 
 <div id="profile" class="page">
-<div class="profile-card">
-<div class="avatar" id="av">?</div>
-<b id="pName">Login করুন</b><br>
-<span id="pEmail" style="font-size:12px;color:#666"></span>
+<div style="background:#fff;padding:20px;border-radius:16px;text-align:center;margin-top:20px">
+<b id="pName">Login করুন</b><br><span id="pEmail" style="font-size:12px;color:#666"></span>
 <div style="margin-top:16px;text-align:left">
 <div style="padding:12px;border-bottom:1px solid #eee">🎮 My Orders</div>
 <div style="padding:12px;border-bottom:1px solid #eee">💬 Support - 01705780185</div>
-<div style="padding:12px;border-bottom:1px solid #eee">⭐ Rating</div>
-<div style="padding:12px" onclick="logout()" id="logoutBtn" style="color:red;display:none">🚪 Logout</div>
+<div style="padding:12px;color:red" onclick="logout()" id="logoutBtn" style="display:none">🚪 Logout</div>
 </div>
 </div>
 </div>
@@ -78,21 +73,15 @@ body{background:#eef2ff;padding-bottom:70px}
 <script>
 let SELECTED='';let USER=JSON.parse(localStorage.getItem('sos_user')||'null');
 const DATA={
-like:{title:'FF Like',list:[['100 Like','20 TK'],['200 Like','40 TK'],['500 Like','90 TK']]},
-uid:{title:'Uid Topup BD',list:[['25 Diamond','23 TK'],['50 Diamond','40 TK'],['115 Diamond','80 TK'],['240 Diamond','160 TK']]},
-lite:{title:'Weekly Lite',list:[['1x Weekly Lite','40 TK'],['2x Weekly Lite','80 TK'],['5x Weekly Lite','200 TK'],['10x Weekly Lite','400 TK']]},
-combo:{title:'Weekly/Monthly',list:[['Weekly','155 TK'],['Monthly','765 TK'],['Weekly+Monthly','930 TK'],['5x Weekly + 1x Monthly','1540 TK']]},
+weeklyLite:{title:'Weekly Lite',list:[['1x Weekly Lite','40 TK'],['2x Weekly Lite','80 TK'],['3x Weekly Lite','120 TK'],['5x Weekly Lite','200 TK'],['10X Weekly Lite','400 TK']]},
+idcode:{title:'ID CODE TOP UP',list:[['25 Diamond','23 TK'],['50 Diamond','40 TK'],['115 Diamond','80 TK'],['240 Diamond','160 TK'],['355 Diamond','240 TK']]},
+weeklyOffer:{title:'Weekly Offer',list:[['Weekly','155 TK'],['2x Weekly','310 TK'],['3x Weekly','465 TK'],['5x Weekly','775 TK'],['Monthly','765 TK']]},
+monthly:{title:'Monthly Offer',list:[['Monthly','765 TK'],['2x Monthly','1530 TK'],['3x Monthly','2295 TK'],['5x Monthly','3825 TK']]},
 level:{title:'Level Up Pass',list:[['Level 10','75 TK'],['Level 20','75 TK'],['Level 30','105 TK'],['Full Level Up','415 TK']]},
-indo:{title:'Indonesia Server',list:[['70 Diamond','110 TK'],['140 Diamond','210 TK'],['355 Diamond','520 TK']]}
+combo:{title:'Weekly + Monthly Combo',list:[['Weekly + Monthly','930 TK'],['5x Weekly + 1x Monthly','1540 TK'],['10x Weekly + 2x Monthly','3080 TK']]}
 };
-function updateLogin(){if(USER){document.getElementById('loginArea').innerHTML='<span style="font-weight:800;font-size:12px">'+USER.name+'</span>';document.getElementById('pName').innerText=USER.name;document.getElementById('pEmail').innerText=USER.email;document.getElementById('av').innerText=USER.name[0];document.getElementById('logoutBtn').style.display='block'}}
-function gmailLogin(){let name=prompt('আপনার নাম লিখুন (Gmail Login Demo):');if(!name)return;let email=prompt('Gmail লিখুন:');if(!email)return;USER={name:name,email:email};localStorage.setItem('sos_user',JSON.stringify(USER));updateLogin();alert('Login Success!')}
+function updateLogin(){if(USER){document.getElementById('loginArea').innerHTML='<span style="font-weight:800;font-size:12px">'+USER.name+'</span>';document.getElementById('pName').innerText=USER.name;document.getElementById('pEmail').innerText=USER.email;document.getElementById('logoutBtn').style.display='block'}}
+function gmailLogin(){let n=prompt('নাম:');if(!n)return;let e=prompt('Gmail:');if(!e)return;USER={name:n,email:e};localStorage.setItem('sos_user',JSON.stringify(USER));updateLogin()}
 function logout(){localStorage.removeItem('sos_user');location.reload()}
-function nav(p,el){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById(p).classList.add('active');document.querySelectorAll('.b-item').forEach(e=>e.classList.remove('active'));el.classList.add('active')}
-function showHome(){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('home').classList.add('active');document.querySelectorAll('.b-item').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.b-item')[0].classList.add('active')}
-function openCat(c){let d=DATA[c];document.getElementById('catTitle').innerText=d.title;let h='';d.list.forEach(o=>{h+=`<div class="offer" onclick="SELECTED='${o[0]} - ${o[1]}';document.querySelectorAll('.offer').forEach(e=>e.classList.remove('sel'));this.classList.add('sel')">${o[0]}<b>${o[1]}</b></div>`});document.getElementById('offerList').innerHTML=h;document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('catPage').classList.add('active')}
-function doOrder(){if(!USER)return alert('আগে Gmail Login করুন');let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;if(!SELECTED)return alert('Offer Select করুন');if(!u||!t)return alert('UID & TrxID দিন');window.open('https://wa.me/8801705780185?text=*SOS ORDER*%0AName:'+USER.name+'%0AEmail:'+USER.email+'%0APack:'+SELECTED+'%0AUID:'+u+'%0ATrx:'+t,'_blank')}
-updateLogin();
-</script>
-</body>
-</html>
+function nav(p,el){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(p).classList.add('active');document.querySelectorAll('.b-item').forEach(x=>x.classList.remove('active'));el.classList.add('active')}
+function showHome(){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('home').classList.add('active');document.querySelectorAll('.b-item').forEach((
