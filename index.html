@@ -3,34 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SOS TOPUP</title>
+<title>SOS TOPUP - 01705780185</title>
 <style>
-body{margin:0;background:#eef1ff;font-family:sans-serif}
-.top{background:#fff;padding:12px;text-align:center;font-weight:900;color:#5a2eff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.box{background:#fff;border-radius:12px;overflow:hidden;border:2px solid #5a2eff}
-.box img{width:100%;height:170px;object-fit:cover;display:block}
-.box p{text-align:center;padding:8px;font-weight:800;font-size:13px}
-.order{background:#fff;margin:10px;padding:12px;border-radius:12px}
-input{width:100%;padding:12px;margin-top:8px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
-button{width:100%;padding:12px;margin-top:8px;background:#00a84f;color:#fff;border:none;border-radius:8px;font-weight:900}
+body{margin:0;background:#eef2ff;font-family:sans-serif}
+.top{background:#fff;padding:14px;text-align:center;font-weight:900;color:#5a2eff;font-size:17px;box-shadow:0 2px 8px #0001}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.box{background:#fff;border-radius:14px;overflow:hidden;border:2px solid #6a5bff;cursor:pointer}
+.box img{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;background:#fff;display:block}
+.box p{text-align:center;padding:9px;font-weight:800;font-size:13px;margin:0;border-top:1px solid #eee}
+.order{background:#fff;margin:12px;padding:14px;border-radius:14px}
+input{width:100%;padding:12px;margin-top:10px;border:1px solid #ccc;border-radius:10px;box-sizing:border-box}
+button{width:100%;padding:13px;margin-top:10px;background:#00a84f;color:#fff;border:none;border-radius:10px;font-weight:900;font-size:15px}
+.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:#0008;display:none;align-items:center;justify-content:center;z-index:999}
+.popup-box{background:#fff;width:90%;max-width:360px;border-radius:16px;overflow:hidden}
+.popup-box img{width:100%;height:auto;object-fit:contain}
+.popup-text{padding:14px}
+.close{background:#ff2e2e;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="top">SOS TOPUP - 01705780185</div>
 <div class="grid">
-<div class="box"><img src="IMG-20260921-WA2237.jpg"><p>Weekly</p></div>
-<div class="box"><img src="IMG-20260921-WA0622.jpg"><p>Weekly Lite</p></div>
-<div class="box"><img src="IMG-20260921-WA7763.jpg"><p>ID Code Topup BD</p></div>
-<div class="box"><img src="IMG-20260921-WA6176.jpg"><p>Mantly</p></div>
-<div class="box"><img src="IMG-20260921-WA3121.jpg"><p>LV Up Pass</p></div>
-<div class="box"><img src="IMG-20260921-WA1220.jpg"><p>Combo Offer</p></div>
+<div class="box" onclick="openOffer(0)"><img src="IMG-20260921-WA2237.jpg"><p>Weekly</p></div>
+<div class="box" onclick="openOffer(1)"><img src="IMG-20260921-WA0622.jpg"><p>Weekly Lite</p></div>
+<div class="box" onclick="openOffer(2)"><img src="IMG-20260921-WA7763.jpg"><p>ID Code Topup BD</p></div>
+<div class="box" onclick="openOffer(3)"><img src="IMG-20260921-WA6176.jpg"><p>Mantly</p></div>
+<div class="box" onclick="openOffer(4)"><img src="IMG-20260921-WA3121.jpg"><p>LV Up Pass</p></div>
+<div class="box" onclick="openOffer(5)"><img src="IMG-20260921-WA1220.jpg"><p>Combo Offer</p></div>
 </div>
+
 <div class="order">
-<b>WhatsApp Order</b>
+<b>WhatsApp Order - অর্ডার করুন</b>
 <input id="uid" placeholder="Game UID লিখুন">
-<input id="trx" placeholder="TrxID লিখুন">
-<button onclick="let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;if(!u||!t){alert('UID & TrxID দিন');return}window.open('https://wa.me/8801705780185?text=SOS ORDER%0AUID:'+u+'%0ATrx:'+t,'_blank')">WhatsApp এ অর্ডার করুন</button>
+<input id="trx" placeholder="Bkash/Nagad TrxID লিখুন">
+<button onclick="let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;let s=selected;if(!u||!t){alert('UID & TrxID দিন');return}window.open('https://wa.me/8801705780185?text=SOS ORDER%0APack:'+s+'%0AUID:'+u+'%0ATrxID:'+t,'_blank')">WhatsApp এ অর্ডার করুন</button>
 </div>
+
+<div class="popup" id="popup" onclick="this.style.display='none'">
+<div class="popup-box" onclick="event.stopPropagation()">
+<img id="pimg" src="">
+<div class="popup-text">
+<b id="ptitle"></b><br>
+<span id="pdesc" style="font-size:14px;color:#444"></span>
+<button onclick="document.getElementById('popup').style.display='none'">অর্ডার করতে নিচে UID দিন</button>
+<button class="close" onclick="document.getElementById('popup').style.display='none'">Close</button>
+</div>
+</div>
+</div>
+
+<script>
+let selected='';
+let offers=[
+{title:'Weekly - 85 TK',desc:'85 Taka Only - Instant Delivery - 100% Safe',img:'IMG-20260921-WA2237.jpg'},
+{title:'Weekly Lite - 45 TK',desc:'45 Taka Only - 7 Days Pack',img:'IMG-20260921-WA0622.jpg'},
+{title:'ID Code Topup BD - 110 TK',desc:'UID Topup - Fast Delivery - BD Server',img:'IMG-20260921-WA7763.jpg'},
+{title:'Mantly - 450 TK',desc:'Monthly Pack - Best Price - 30 Days',img:'IMG-20260921-WA6176.jpg'},
+{title:'LV Up Pass - 185 TK',desc:'Level Up Pass - Instant Active',img:'IMG-20260921-WA3121.jpg'},
+{title:'Combo Offer - 520 TK',desc:'Combo - Weekly + Monthly - Save 80 TK',img:'IMG-20260921-WA1220.jpg'}
+];
+function openOffer(i){
+let o=offers[i];
+selected=o.title;
+document.getElementById('pimg').src=o.img;
+document.getElementById('ptitle').innerText=o.title;
+document.getElementById('pdesc').innerText=o.desc;
+document.getElementById('popup').style.display='flex';
+}
+</script>
 </body>
   </html>
