@@ -1,74 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SOS TOPUP - 01705780185</title>
+<title>SOS TOPUP - EFAT VAI</title>
 <style>
-body{margin:0;background:#eef2ff;font-family:sans-serif}
-.top{background:#fff;padding:14px;text-align:center;font-weight:900;color:#5a2eff;font-size:17px;box-shadow:0 2px 8px #0001}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f0f4ff;padding-bottom:90px}
+.head{background:#fff;padding:14px;text-align:center;font-weight:900;color:#0057ff;font-size:18px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
+.banner{margin:10px;border-radius:14px;overflow:hidden}
+.banner img{width:100%;display:block}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.box{background:#fff;border-radius:14px;overflow:hidden;border:2px solid #6a5bff;cursor:pointer}
-.box img{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;background:#fff;display:block}
-.box p{text-align:center;padding:9px;font-weight:800;font-size:13px;margin:0;border-top:1px solid #eee}
-.order{background:#fff;margin:12px;padding:14px;border-radius:14px}
-input{width:100%;padding:12px;margin-top:10px;border:1px solid #ccc;border-radius:10px;box-sizing:border-box}
-button{width:100%;padding:13px;margin-top:10px;background:#00a84f;color:#fff;border:none;border-radius:10px;font-weight:900;font-size:15px}
-.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:#0008;display:none;align-items:center;justify-content:center;z-index:999}
-.popup-box{background:#fff;width:90%;max-width:360px;border-radius:16px;overflow:hidden}
-.popup-box img{width:100%;height:auto;object-fit:contain}
-.popup-text{padding:14px}
-.close{background:#ff2e2e;margin-top:10px}
+.card{background:#fff;border-radius:14px;overflow:hidden;border:2px solid #ddd;cursor:pointer;text-align:center}
+.card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#fff}
+.card p{padding:10px;font-weight:800;font-size:13px;border-top:1px solid #eee}
+.page{display:none;padding:10px}
+.page.active{display:block}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.offer{background:#fff;border:2px solid #dde6ff;border-radius:12px;padding:12px;text-align:center;font-weight:700;font-size:13px;cursor:pointer}
+.offer.sel{border-color:#0057ff;background:#eef4ff}
+.offer b{display:block;color:#ff5a00;margin-top:4px}
+.back{border:none;background:#eee;padding:8px 16px;border-radius:20px;margin-bottom:12px;font-weight:700}
+.inp{width:100%;padding:12px;border:2px solid #dde6ff;border-radius:10px;margin-top:10px}
+.btn{width:100%;padding:14px;background:#00a84f;color:#fff;border:none;border-radius:12px;font-weight:900;margin-top:12px;font-size:15px}
 </style>
 </head>
 <body>
-<div class="top">SOS TOPUP - 01705780185</div>
+<div class="head">SOS TOPUP - 01705780185</div>
+<div class="banner"><img src="banner.jpg" onerror="this.style.display='none'"></div>
+
+<div id="home" class="page active">
 <div class="grid">
-<div class="box" onclick="openOffer(0)"><img src="IMG-20260921-WA2237.jpg"><p>Weekly</p></div>
-<div class="box" onclick="openOffer(1)"><img src="IMG-20260921-WA0622.jpg"><p>Weekly Lite</p></div>
-<div class="box" onclick="openOffer(2)"><img src="IMG-20260921-WA7763.jpg"><p>ID Code Topup BD</p></div>
-<div class="box" onclick="openOffer(3)"><img src="IMG-20260921-WA6176.jpg"><p>Mantly</p></div>
-<div class="box" onclick="openOffer(4)"><img src="IMG-20260921-WA3121.jpg"><p>LV Up Pass</p></div>
-<div class="box" onclick="openOffer(5)"><img src="IMG-20260921-WA1220.jpg"><p>Combo Offer</p></div>
+<div class="card" onclick="openCat('lite')"><img src="IMG-20260921-WA2237.jpg"><p>Weekly Lite Offer</p></div>
+<div class="card" onclick="openCat('level')"><img src="IMG-20260921-WA3121.jpg"><p>Lv Up Pass</p></div>
+<div class="card" onclick="openCat('combo')"><img src="IMG-20260921-WA6176.jpg"><p>Combo Offer</p></div>
+<div class="card" onclick="openCat('weekly')"><img src="IMG-20260921-WA2237.jpg"><p>Weekly / Monthly</p></div>
+<div class="card" onclick="openCat('diamond')"><img src="IMG-20260921-WA7763.jpg"><p>ID Code Topup</p></div>
+<div class="card" onclick="openCat('combo2')"><img src="IMG-20260921-WA1220.jpg"><p>Special Combo</p></div>
+</div>
 </div>
 
-<div class="order">
-<b>WhatsApp Order - অর্ডার করুন</b>
-<input id="uid" placeholder="Game UID লিখুন">
-<input id="trx" placeholder="Bkash/Nagad TrxID লিখুন">
-<button onclick="let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;let s=selected;if(!u||!t){alert('UID & TrxID দিন');return}window.open('https://wa.me/8801705780185?text=SOS ORDER%0APack:'+s+'%0AUID:'+u+'%0ATrxID:'+t,'_blank')">WhatsApp এ অর্ডার করুন</button>
-</div>
-
-<div class="popup" id="popup" onclick="this.style.display='none'">
-<div class="popup-box" onclick="event.stopPropagation()">
-<img id="pimg" src="">
-<div class="popup-text">
-<b id="ptitle"></b><br>
-<span id="pdesc" style="font-size:14px;color:#444"></span>
-<button onclick="document.getElementById('popup').style.display='none'">অর্ডার করতে নিচে UID দিন</button>
-<button class="close" onclick="document.getElementById('popup').style.display='none'">Close</button>
-</div>
+<div id="catPage" class="page">
+<button class="back" onclick="showHome()">← Back</button>
+<h3 id="catTitle" style="margin-bottom:10px"></h3>
+<div id="offerList" class="offer-grid"></div>
+<div style="background:#fff;padding:14px;border-radius:14px;margin-top:14px">
+<b>Order Info</b>
+<input id="uid" class="inp" placeholder="Game UID লিখুন">
+<input id="trx" class="inp" placeholder="Bkash/Nagad TrxID লিখুন">
+<button class="btn" onclick="doOrder()">WhatsApp এ অর্ডার করুন</button>
 </div>
 </div>
 
 <script>
-let selected='';
-let offers=[
-{title:'Weekly - 85 TK',desc:'85 Taka Only - Instant Delivery - 100% Safe',img:'IMG-20260921-WA2237.jpg'},
-{title:'Weekly Lite - 45 TK',desc:'45 Taka Only - 7 Days Pack',img:'IMG-20260921-WA0622.jpg'},
-{title:'ID Code Topup BD - 110 TK',desc:'UID Topup - Fast Delivery - BD Server',img:'IMG-20260921-WA7763.jpg'},
-{title:'Mantly - 450 TK',desc:'Monthly Pack - Best Price - 30 Days',img:'IMG-20260921-WA6176.jpg'},
-{title:'LV Up Pass - 185 TK',desc:'Level Up Pass - Instant Active',img:'IMG-20260921-WA3121.jpg'},
-{title:'Combo Offer - 520 TK',desc:'Combo - Weekly + Monthly - Save 80 TK',img:'IMG-20260921-WA1220.jpg'}
-];
-function openOffer(i){
-let o=offers[i];
-selected=o.title;
-document.getElementById('pimg').src=o.img;
-document.getElementById('ptitle').innerText=o.title;
-document.getElementById('pdesc').innerText=o.desc;
-document.getElementById('popup').style.display='flex';
-}
+let SELECTED='';
+const DATA={
+lite:{title:'উইকলি লাইট অফার',list:[['1x Weekly Lite','BDT 40'],['2x Weekly Lite','BDT 80'],['3x Weekly Lite','BDT 120'],['5x Weekly Lite','BDT 200'],['10X WEEKLY LITE','BDT 400']]},
+level:{title:'LvUp Pass',list:[['Level Up Package - Level 6','40 TK'],['Level Up Package - Level 10','75 TK'],['Level Up Package - Level 15','75 TK'],['Level Up Package - Level 20','75 TK'],['Level Up Package - Level 25','75 TK'],['Level Up Package - Level 30','105 TK'],['Full Level Up (1270 Diamond)','415 TK']]},
+weekly:{title:'Weekly',list:[['Weekly','155 TK'],['2X Weekly','310 TK'],['3X Weekly','465 TK'],['5X Weekly','775 TK'],['10x Weekly','1550 TK'],['Monthly','765 TK'],['2X Monthly','1540 TK']]},
+combo:{title:'Combo Offer',list:[['3x Monthly','2295 TK'],['4X Monthly','3060 TK'],['5X Monthly','3825 TK'],['1Weekly + 1Monthly','930 TK'],['4Weekly + 1Monthly','1395 TK'],['5x Weekly + 1x Monthly','1540 TK'],['10x Weekly + 2x Monthly','3080 TK']]},
+diamond:{title:'ID Code Topup BD',list:[['25 Diamond','23 TK'],['50 Diamond','40 TK'],['115 Diamond','80 TK'],['240 Diamond','160 TK'],['355 Diamond','240 TK'],['480 Diamond','320 TK']]},
+combo2:{title:'Special Combo',list:[['Weekly + Monthly','930 TK'],['5 Weekly + 1 Monthly','1540 TK'],['10 Weekly + 2 Monthly','3080 TK'],['Level Up Full','415 TK']]}
+};
+function showHome(){document.getElementById('home').classList.add('active');document.getElementById('catPage').classList.remove('active')}
+function openCat(c){let d=DATA[c];document.getElementById('catTitle').innerText=d.title;let html='';d.list.forEach(o=>{html+=`<div class="offer" onclick="SELECTED='${o[0]} - ${o[1]}';document.querySelectorAll('.offer').forEach(e=>e.classList.remove('sel'));this.classList.add('sel')">${o[0]}<b>${o[1]}</b></div>`});document.getElementById('offerList').innerHTML=html;document.getElementById('home').classList.remove('active');document.getElementById('catPage').classList.add('active');window.scrollTo(0,0)}
+function doOrder(){let u=document.getElementById('uid').value;let t=document.getElementById('trx').value;if(!SELECTED)return alert('একটা অফার সিলেক্ট করো');if(!u||!t)return alert('UID & TrxID দাও');window.open('https://wa.me/8801705780185?text=*SOS ORDER*%0APackage:'+SELECTED+'%0AUID:'+u+'%0ATrxID:'+t,'_blank')}
 </script>
 </body>
-  </html>
+</html>
